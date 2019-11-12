@@ -1,0 +1,16 @@
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\Jespar.DatabaseContext.dll.config
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\Jespar.DatabaseContext.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\Jespar.DatabaseContext.pdb
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\EntityFramework.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\EntityFramework.SqlServer.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\Jespar.Model.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\Jespar.Model.pdb
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\EntityFramework.xml
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\bin\Debug\EntityFramework.SqlServer.xml
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csprojAssemblyReference.cache
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.CoreCompileInputs.cache
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.CopyComplete
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.pdb
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Supplier.resources
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.GenerateResource.cache

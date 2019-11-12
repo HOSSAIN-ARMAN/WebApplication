@@ -1,0 +1,6 @@
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\bin\Debug\Jespar.Model.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\bin\Debug\Jespar.Model.pdb
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\obj\Debug\Jespar.Model.csprojAssemblyReference.cache
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\obj\Debug\Jespar.Model.csproj.CoreCompileInputs.cache
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\obj\Debug\Jespar.Model.dll
+D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.Model\obj\Debug\Jespar.Model.pdb
