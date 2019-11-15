@@ -1,0 +1,45 @@
+﻿@model JesparWebApplication.Models.SupplierViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h2>Supplier Table</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>SL</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Loyalty Point</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1;}
+                @foreach (var supplier in Model.Suppliers)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@supplier.Code</td>
+                        <td>@supplier.Name</td>
+                        <td>@supplier.Address</td>
+                        <td>@supplier.Email</td>
+                        <td>@supplier.Contact</td>
+                        <td>@supplier.LoyaltyPoint</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "supplier", null);
+                            <a class='btn btn-outline-info btn-sm' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                            <a class="btn btn-outline-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span> Del</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

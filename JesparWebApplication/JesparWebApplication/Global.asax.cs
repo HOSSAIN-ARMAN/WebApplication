@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using JesparWebApplication.Models;
+using Jespar.Model.Model;
 
 namespace JesparWebApplication
 {
@@ -16,6 +19,13 @@ namespace JesparWebApplication
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<SupplierViewModel, Supplier>();
+                cfg.CreateMap<SupplierViewModel, Supplier>();
+            });
         }
+       
     }
 }

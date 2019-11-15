@@ -5,49 +5,87 @@ using System.Web;
 using System.Web.Mvc;
 using Jespar.Model.Model;
 using Jespar.BLL.BLL;
-
+using JesparWebApplication.Models;
+using AutoMapper;
 
 namespace JesparWebApplication.Controllers
 {
     public class SupplierController : Controller
     {
-      
-        //// GET: Supplier
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+     
         SupplierManager _supplierManager = new SupplierManager();
         [HttpGet]
         public ActionResult Save()
         {
-            return View();
+            SupplierViewModel supplierViewModel = new SupplierViewModel();
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+            return View(supplierViewModel);
         }
         [HttpPost]
-        public ActionResult Save(Supplier supplier)
+        public ActionResult Save(SupplierViewModel supplierViewModel)
         {
             string message = "";
-            if (_supplierManager.Save(supplier))
+
+            //Supplier supplier = new Supplier();
+            //supplier.Code = supplierViewModel.Code;
+            //supplier.Name = supplierViewModel.Name;
+            //supplier.Address = supplierViewModel.Address;
+            //supplier.Email = supplierViewModel.Email;
+            //supplier.Contact = supplierViewModel.Contact;
+            //supplier.LoyaltyPoint = supplierViewModel.LoyaltyPoint;
+
+            Supplier supplier = Mapper.Map<Supplier>(supplierViewModel);
+            if (ModelState.IsValid)
             {
-                message = "Supplier Data Save Successfully";
+                if (_supplierManager.Save(supplier))
+                {
+                    message = "Supplier Data Save Successfully";
+                }
+                else
+                {
+                    message = "Data Not Save ";
+                }
             }
             else
             {
-                message = "Data Not Save ";
+                message = "ModelState failed";
             }
+           
             ViewBag.message = message;
 
-
-            return View();
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+            return View(supplierViewModel);
         }
-        //[HttpGet]
-        public ActionResult Show()
+        [HttpGet]
+        public ActionResult Search()
         {
-            List<Supplier> aSuppliers = _supplierManager.GetAll();
-            ViewBag.a = aSuppliers;
+            SupplierViewModel supplierViewModel = new SupplierViewModel();
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+            return View(supplierViewModel);
+        }
+        [HttpPost]
+        public ActionResult Search(SupplierViewModel supplierViewModel)
+        {
+            var suppliers = _supplierManager.GetAll();
+            if(supplierViewModel.Code != null)
+            {
+                suppliers = suppliers.Where(c => c.Code.Contains(supplierViewModel.Code)).ToList();
+            }
+            supplierViewModel.Suppliers = suppliers;
+            return View(supplierViewModel);
+
+        }
+        ////[HttpGet]
+        //public ActionResult Show()
+        //{
+        //    List<Supplier> aSuppliers = _supplierManager.GetAll();
+        //    ViewBag.a = aSuppliers;
+        //    return View();
+        //}
+        [HttpGet]
+        public ActionResult Edit()
+        {
             return View();
         }
-
     }
 }
