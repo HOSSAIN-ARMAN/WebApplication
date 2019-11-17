@@ -12,13 +12,15 @@ namespace JesparWebApplication.Controllers
 {
     public class SupplierController : Controller
     {
-     
+
         SupplierManager _supplierManager = new SupplierManager();
+
         [HttpGet]
         public ActionResult Save()
         {
             SupplierViewModel supplierViewModel = new SupplierViewModel();
             supplierViewModel.Suppliers = _supplierManager.GetAll();
+           
             return View(supplierViewModel);
         }
         [HttpPost]
@@ -66,7 +68,7 @@ namespace JesparWebApplication.Controllers
         [HttpPost]
         public ActionResult Search(SupplierViewModel supplierViewModel)
         {
-            var suppliers = _supplierManager.GetAll();
+            List<Supplier> suppliers = _supplierManager.GetAll();
             if(supplierViewModel.Code != null)
             {
                 suppliers = suppliers.Where(c => c.Code.Contains(supplierViewModel.Code)).ToList();
@@ -82,10 +84,50 @@ namespace JesparWebApplication.Controllers
         //    ViewBag.a = aSuppliers;
         //    return View();
         //}
+
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View();
+            var supplier = _supplierManager.GetById(id);
+            SupplierViewModel supplierViewModel = Mapper.Map<SupplierViewModel>(supplier);
+                       
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+            return View(supplierViewModel);
         }
+        [HttpPost]
+        public ActionResult Edit(SupplierViewModel supplierViewModel)
+        {
+            string message = "";
+
+            if (ModelState.IsValid)
+            {
+                Supplier supplier = Mapper.Map<Supplier>(supplierViewModel);
+
+                if (_supplierManager.Update(supplier))
+                {
+                    message = "Update SuccessFuly!!";
+                }
+                else
+                {
+                    message = "Not Updated";
+                }
+
+            }
+            else
+            {
+                message = "Modelstate failed";
+            }
+
+            ViewBag.Message = message;
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+
+            return View(supplierViewModel);
+        }
+        
+
+
+
+
+
     }
 }

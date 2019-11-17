@@ -88,6 +88,8 @@ D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.Repository.dll.config
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.pdb
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.dll.config
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csprojAssemblyReference.cache
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.dll.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.pdb
@@ -138,6 +140,7 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplicatio
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\roslyn\VBCSCompiler.exe
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\roslyn\VBCSCompiler.exe.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Antlr3.Runtime.dll
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\EntityFramework.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\EntityFramework.SqlServer.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.BLL.dll
@@ -145,6 +148,7 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplicatio
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Microsoft.Web.Infrastructure.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Newtonsoft.Json.dll
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.ValueTuple.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Helpers.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Mvc.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Optimization.dll
@@ -158,9 +162,12 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplicatio
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.BLL.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.Model.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Antlr3.Runtime.pdb
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.pdb
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\EntityFramework.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\EntityFramework.SqlServer.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Newtonsoft.Json.xml
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.ValueTuple.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Helpers.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Mvc.xml
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.Web.Optimization.xml
@@ -173,13 +180,6 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplicatio
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.Repository.dll.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.dll.config
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csprojAssemblyReference.cache
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CopyComplete
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.pdb
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.dll
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.ValueTuple.dll
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.pdb
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\AutoMapper.xml
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\System.ValueTuple.xml

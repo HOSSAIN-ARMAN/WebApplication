@@ -19,5 +19,18 @@ namespace Jespar.BLL.BLL
         {
             return _supplierRepository.GetAll();
         }
+        public Supplier GetById(int id)
+        {
+            return _supplierRepository.GetById(id);
+        }
+        public bool Update(Supplier supplier)
+        {
+            return _supplierRepository.Update(supplier);
+        }
+        public bool Delete(int id)
+        {
+            return _supplierRepository.Delete(id);
+        }
+
     }
 }

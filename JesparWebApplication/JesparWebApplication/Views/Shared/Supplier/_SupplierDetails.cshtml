@@ -31,9 +31,10 @@
                         <td>@supplier.Contact</td>
                         <td>@supplier.LoyaltyPoint</td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", "supplier", null);
-                            <a class='btn btn-outline-info btn-sm' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                            <a class="btn btn-outline-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span> Del</a>
+                            @Html.ActionLink("Edit", "Edit", "supplier", new { Id = supplier.Id}, null)
+                            @Html.ActionLink("Delete", "Delete", "supplier", new { Id = supplier.Id}, null)
+                            @*<a class='btn btn-outline-info btn-sm' href="#"><span class="glyphicon glyphicon-edit"></span> </a>
+                            <a class="btn btn-outline-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span> Del</a>*@
                         </td>
                     </tr>
                 }

@@ -24,6 +24,7 @@ namespace JesparWebApplication
             {
                 cfg.CreateMap<SupplierViewModel, Supplier>();
                 cfg.CreateMap<SupplierViewModel, Supplier>();
+                cfg.ValidateInlineMaps = false;
             });
         }
        
