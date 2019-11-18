@@ -26,7 +26,9 @@ namespace JesparWebApplication.Models
         [Required(ErrorMessage = "Input Can Not Be Empty")]
         [Display(Name = "Email: ")]
         public string Email { set; get; }
-        [Required(ErrorMessage = "Input Can Not Be Empty")]
+        [Required(ErrorMessage = "Input Can Not Be Empty")]        
+        [MinLength(11, ErrorMessage ="Contact must be in 11 numbers")]
+        [MaxLength(11, ErrorMessage = "Contact must be in 11 numbers")]
         [Display(Name = "Contact: ")]
         public string Contact { set; get; }
         [Required(ErrorMessage = "Input Can Not Be Empty")]

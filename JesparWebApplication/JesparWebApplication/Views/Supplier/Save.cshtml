@@ -29,6 +29,10 @@
 
                             @Html.TextBoxFor(c => c.Code)
                             @Html.ValidationMessageFor(c => c.Code)
+                            @if (ViewBag.CodeExits != null)
+                            {
+                                <p>@ViewBag.CodeExits</p>
+                            }
                         </div>
                     </div>
                     <div class="form-group row">

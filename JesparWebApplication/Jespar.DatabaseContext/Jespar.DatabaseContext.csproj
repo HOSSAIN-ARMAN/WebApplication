@@ -53,6 +53,14 @@
     <Compile Include="Migrations\201911101335175_Supplier.Designer.cs">
       <DependentUpon>201911101335175_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911180617176_Category.cs" />
+    <Compile Include="Migrations\201911180617176_Category.Designer.cs">
+      <DependentUpon>201911180617176_Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911181213133_CategoryAddedToProduct.cs" />
+    <Compile Include="Migrations\201911181213133_CategoryAddedToProduct.Designer.cs">
+      <DependentUpon>201911181213133_CategoryAddedToProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +77,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911101335175_Supplier.resx">
       <DependentUpon>201911101335175_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911180617176_Category.resx">
+      <DependentUpon>201911180617176_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181213133_CategoryAddedToProduct.resx">
+      <DependentUpon>201911181213133_CategoryAddedToProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

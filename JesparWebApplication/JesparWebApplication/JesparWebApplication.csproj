@@ -158,7 +158,10 @@
     <Content Include="Theme\images\profile\male\image_7.png" />
     <Content Include="Theme\images\profile\male\image_8.png" />
     <Content Include="Theme\images\profile\male\image_9.png" />
+    <Content Include="Theme\images\profile\male\jasper2.png" />
+    <Content Include="Theme\images\profile\male\jesper.png" />
     <Content Include="Theme\images\pro_features_bg.svg" />
+    <Content Include="Theme\images\sbms.png" />
     <Content Include="Theme\images\social-icons\dribbble.svg" />
     <Content Include="Theme\images\social-icons\facebook.svg" />
     <Content Include="Theme\images\social-icons\instagram.svg" />
@@ -1826,16 +1829,21 @@
     <Content Include="Theme\vendors\tinymce\themes\modern\theme.min.js" />
     <Content Include="Theme\vendors\tinymce\tinymce.js" />
     <Content Include="Theme\vendors\tinymce\tinymce.min.js" />
+    <Content Include="Views\Prodcut\jesper.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ProdcutController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\SupplierViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2011,6 +2019,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Supplier\_SupplierDetails.cshtml" />
     <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Category\CategorySave.cshtml" />
+    <Content Include="Views\Shared\Category\_CategoryDetails.cshtml" />
+    <Content Include="Views\Prodcut\AddProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

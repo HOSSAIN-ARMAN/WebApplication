@@ -44,5 +44,7 @@ namespace Jespar.Repository.Repository
             _dbContext.Suppliers.Remove(aSupplier);
             return _dbContext.SaveChanges() > 0;
         }
+
+       
     }
 }

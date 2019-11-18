@@ -11,5 +11,7 @@ namespace Jespar.DatabaseContext.DatabaseContext
     public class JesparDbContext:DbContext
     {
         public DbSet<Supplier> Suppliers { set; get; }
+        public DbSet<Category> Categories { set; get; }
+        public DbSet<Product> Products { set; get; }
     }
 }

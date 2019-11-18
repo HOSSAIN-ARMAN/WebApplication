@@ -19,8 +19,10 @@ namespace JesparWebApplication.Controllers
         public ActionResult Save()
         {
             SupplierViewModel supplierViewModel = new SupplierViewModel();
-            supplierViewModel.Suppliers = _supplierManager.GetAll();
            
+
+            supplierViewModel.Suppliers = _supplierManager.GetAll();
+            
             return View(supplierViewModel);
         }
         [HttpPost]
@@ -37,16 +39,38 @@ namespace JesparWebApplication.Controllers
             //supplier.LoyaltyPoint = supplierViewModel.LoyaltyPoint;
 
             Supplier supplier = Mapper.Map<Supplier>(supplierViewModel);
+
+
+            List<Supplier> suppliers = _supplierManager.GetAll();
+            suppliers = suppliers.Where(c => c.Code.Contains(supplierViewModel.Code)).ToList();
+            string isExits = "";
+            string codeExitsMessage = "";
+            foreach (var aSupplier in suppliers)
+            {
+                isExits = aSupplier.Code;
+            }
+
+
             if (ModelState.IsValid)
             {
-                if (_supplierManager.Save(supplier))
+                if(isExits == supplierViewModel.Code)
                 {
-                    message = "Supplier Data Save Successfully";
+                    codeExitsMessage = "This Code Already exits";
                 }
                 else
                 {
-                    message = "Data Not Save ";
+                    if (_supplierManager.Save(supplier))
+                    {
+                        message = "Supplier Data Save Successfully";
+                    }
+                    else
+                    {
+                        message = "Data Not Save ";
+                    }
+
                 }
+
+
             }
             else
             {
@@ -54,7 +78,7 @@ namespace JesparWebApplication.Controllers
             }
            
             ViewBag.message = message;
-
+            ViewBag.CodeExits = codeExitsMessage;
             supplierViewModel.Suppliers = _supplierManager.GetAll();
             return View(supplierViewModel);
         }
@@ -75,6 +99,7 @@ namespace JesparWebApplication.Controllers
             }
             supplierViewModel.Suppliers = suppliers;
             return View(supplierViewModel);
+           
 
         }
         ////[HttpGet]
@@ -123,11 +148,24 @@ namespace JesparWebApplication.Controllers
 
             return View(supplierViewModel);
         }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Supplier supplier = _supplierManager.GetById(id);
+            string message = "";
+            if (_supplierManager.Delete(id))
+            {
+                message = "Delete Succsessfully!!";
+            }
+            else
+            {
+                message = "Not delete ";
+            }
+            ViewBag.Message = message;
+
+            return RedirectToAction("Save");
+        }
         
-
-
-
-
 
     }
 }
