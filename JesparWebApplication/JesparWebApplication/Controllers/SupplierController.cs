@@ -55,10 +55,14 @@ namespace JesparWebApplication.Controllers
             {
                 if(isExits == supplierViewModel.Code)
                 {
-                    codeExitsMessage = "This Code Already exits";
+
+                    codeExitsMessage = "this Code ALreasy Exits";
+                    ViewBag.CodeExits = codeExitsMessage;
+                    //return Content(codeExitsMessage);
                 }
                 else
                 {
+                   
                     if (_supplierManager.Save(supplier))
                     {
                         message = "Supplier Data Save Successfully";
@@ -78,9 +82,11 @@ namespace JesparWebApplication.Controllers
             }
            
             ViewBag.message = message;
-            ViewBag.CodeExits = codeExitsMessage;
+            
             supplierViewModel.Suppliers = _supplierManager.GetAll();
+
             return View(supplierViewModel);
+            //return RedirectToAction("Search");
         }
         [HttpGet]
         public ActionResult Search()
@@ -98,7 +104,10 @@ namespace JesparWebApplication.Controllers
                 suppliers = suppliers.Where(c => c.Code.Contains(supplierViewModel.Code)).ToList();
             }
             supplierViewModel.Suppliers = suppliers;
+            //return View(supplierViewModel);
             return View(supplierViewModel);
+
+            
            
 
         }
@@ -123,7 +132,7 @@ namespace JesparWebApplication.Controllers
         public ActionResult Edit(SupplierViewModel supplierViewModel)
         {
             string message = "";
-
+           
             if (ModelState.IsValid)
             {
                 Supplier supplier = Mapper.Map<Supplier>(supplierViewModel);
@@ -146,7 +155,9 @@ namespace JesparWebApplication.Controllers
             ViewBag.Message = message;
             supplierViewModel.Suppliers = _supplierManager.GetAll();
 
-            return View(supplierViewModel);
+            //return View(supplierViewModel);
+
+            return RedirectToAction("Search");
         }
         [HttpGet]
         public ActionResult Delete(int id)
@@ -163,7 +174,7 @@ namespace JesparWebApplication.Controllers
             }
             ViewBag.Message = message;
 
-            return RedirectToAction("Save");
+            return RedirectToAction("Search");
         }
         
 

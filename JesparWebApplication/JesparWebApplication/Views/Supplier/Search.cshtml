@@ -1,140 +1,48 @@
 ﻿@model JesparWebApplication.Models.SupplierViewModel
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Search</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
     <div class="container">
-        <div class="card">
-            <div class="card-header mb-0">
-                <form>
-                    <div class="form-group row">
-                        <label for="colFormLabel" class="col-sm-8 col-form-label"> <b>SUPPLIER INFO</b></label>
-                        <div class="col-sm-4 right">
-                            <!-- Search form -->
 
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <form method="post">
-
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Code</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="Code" value="@Model.Code" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Address</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="Address" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" name="Email" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Cotact</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="Contact" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Loyalty Point</label>
-                            <div class="col-sm-10">
-                                <input type="number" name="LoyaltyPoint" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
-                                <input type="submit" name="btn" class="form-control btn btn-outline-info" value="Search">
-                            </div>
-                        </div>
-
-                    </form>
-                    <footer class="blockquote-footer">
-                        Enter Supplier Info <cite title="Source Title">Get Message here....</cite>
-                        @if (ViewBag.message != null)
-                        {
-                            <h4 class="text-center text-primary">  @ViewBag.message</h4>
-                        }
-                    </footer>
-                </blockquote>
-            </div>
-
-            @ViewBag.getSupplier
-
-        </div>
         <hr />
-        <br />
-        <h2>Supplier Table</h2>
-        <table class="table table-bordered table-hover">
-            <thead class="thead-dark table-striped">
-                <tr>
-                    <th>SL</th>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th>Contact</th>
-                    <th>Loyalty Point</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{ int i = 1;}
-                @foreach (var supplier in Model.Suppliers)
-                {
-                    <tr>
-                        <td>@(i++)</td>
-                        <td>@supplier.Code</td>
-                        <td>@supplier.Name</td>
-                        <td>@supplier.Address</td>
-                        <td>@supplier.Email</td>
-                        <td>@supplier.Contact</td>
-                        <td>@supplier.LoyaltyPoint</td>
-                        <td class="text-center">
-                            @*<a href="#"><button type="button" class="btn btn-outline-info">Edit</button></a>*@
-                            <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                            <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
-                            @*<a href="#"><button type="button" class="btn btn-outline-warning">Delete</button></a>*@
-                        </td>
-                    </tr>
-                }
+        
+
+        @section Search{
+            <form action="#" class="t-header-search-box" method="post">
+                <div class="input-group">
+                    <input type="text" name="Code" value="@Model.Code" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+                    <button class="btn btn-outline-info" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+                </div>
+            </form>
+
+        }
+
+        @{
+            Html.RenderPartial("~/Views/Shared/Supplier/_SupplierDetails.cshtml", Model);
+        }
 
 
-            </tbody>
-        </table>
+
+
+
+        @*<form method="post">
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Code</label>
+                <div class="col-sm-10">
+                    <input type="text" name="Code" value="@Model.Code" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="submit" name="btnSearch" class="form-control btn btn-outline-info" value="Search">
+                </div>
+            </div>
+        </form>*@
+
+
+
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-</body>
-</html>

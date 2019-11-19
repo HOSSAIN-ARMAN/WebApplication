@@ -1,8 +1,12 @@
 ﻿@model JesparWebApplication.Models.SupplierViewModel
 
 <div class="card">
-    <div class="card-header">
-        <h2>Supplier Table</h2>
+    <div class="grid-header">
+        <div class="row">
+            <label class="col-md-10"></label>
+            @*<button class="col-md-4 btn btn-outline-primary"><a href="@Url.Action("Save", "Supplier")">Add Supplier</a></button>*@
+            <a href="@Url.Action("Save", "Supplier")"><button class="btn btn-outline-info" type="submit">Add SUPPLIER<i class="mdi mdi-arrow-up-bold-circle"></i></button></a>
+        </div>
         
     </div>
     <div class="card-body">

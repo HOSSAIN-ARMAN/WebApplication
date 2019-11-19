@@ -1861,7 +1861,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Supplier\Save.cshtml" />
-    <Content Include="Views\Supplier\Search.cshtml" />
     <Content Include="Theme\css\demo_1\style.css.map" />
     <Content Include="Theme\css\demo_2\style.css.map" />
     <Content Include="Theme\css\shared\style.css.map" />
@@ -2022,6 +2021,7 @@
     <Content Include="Views\Category\CategorySave.cshtml" />
     <Content Include="Views\Shared\Category\_CategoryDetails.cshtml" />
     <Content Include="Views\Prodcut\AddProduct.cshtml" />
+    <Content Include="Views\Supplier\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
