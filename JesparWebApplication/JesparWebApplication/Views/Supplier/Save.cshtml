@@ -9,19 +9,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-        .btn{
-            border:double;
+        .btn {
+            border: double;
         }
     </style>
 
 }
 
 @section Search{
-   @* <button class="col-md-4 btn btn-light"><a href="@Url.Action("Search", "Supplier")">Display Supplier</a></button>*@
+    @* <button class="col-md-4 btn btn-light"><a href="@Url.Action("Search", "Supplier")">Display Supplier</a></button>*@
 
     <div class="input-group">
+
+        <span class="notification-indicator notification-indicator-info notification-indicator-ripple"></span>
+        <a href="@Url.Action("Search", "Supplier")"><i class="grid-icon mdi mdi-table-of-contents mdi-2x"></i></a>
+
+
+       
+        @*<span class="grid-tittle">Bitbucket</span>*@
         
-        <a href="@Url.Action("Search", "Supplier")"><button class="btn btn-outline-info" type="submit">DISPLAY SUPPLIER<i class="mdi mdi-arrow-top-right-bold-outline"></i></button></a>
+  
+
+    @*<button class="btn btn-outline-info" type="submit"></button>*@
     </div>
 }
 

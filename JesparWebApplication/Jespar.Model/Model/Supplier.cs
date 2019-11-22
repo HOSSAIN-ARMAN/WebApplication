@@ -8,6 +8,10 @@ namespace Jespar.Model.Model
 {
     public class Supplier
     {
+        public Supplier()
+        {
+            Purchases = new List<Purchase>();
+        }
         public int Id { set; get; }
         public string Code { set; get; }
         public string Name { set; get; }
@@ -15,5 +19,7 @@ namespace Jespar.Model.Model
         public string Email { set; get; }
         public string Contact { set; get; }
         public string LoyaltyPoint { set; get; }
+
+        public List<Purchase> Purchases { set; get; }
     }
 }

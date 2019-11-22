@@ -11,10 +11,14 @@ namespace Jespar.Model.Model
         public Category()
         {
             Products = new List<Product>();
+            
         }
+        
         public int Id { set; get; }
         public string Code { set; get; }
         public string Name { set; get; }
         public List<Product> Products { set; get; }
+
+       
     }
 }

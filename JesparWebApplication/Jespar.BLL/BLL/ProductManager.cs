@@ -15,5 +15,9 @@ namespace Jespar.BLL.BLL
         {
             return _productRepository.Add(product);
         }
+        public List<Product> GetAll()
+        {
+            return _productRepository.GetAll();
+        }
     }
 }

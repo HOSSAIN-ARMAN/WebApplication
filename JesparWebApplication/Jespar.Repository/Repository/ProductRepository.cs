@@ -16,5 +16,9 @@ namespace Jespar.Repository.Repository
             _dbContext.Products.Add(product);
             return _dbContext.SaveChanges() > 0;
         }
+        public List<Product> GetAll()
+        {
+            return _dbContext.Products.ToList();
+        }
     }
 }
