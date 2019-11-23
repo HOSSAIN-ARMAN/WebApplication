@@ -8,9 +8,11 @@ namespace Jespar.Model.Model
 {
     public class Purchase
     {
+      
         public int Id { set; get; }
         public string Date { set; get; }
         public string InvoiceNo { set; get; }
+        public string ProductCode { set; get; }
         public string ManufractureDate { set; get; }
         public string ExoireDate { set; get; }
         public string Remarks { set; get; }
@@ -29,5 +31,7 @@ namespace Jespar.Model.Model
         //Associate Product
         public int ProductId { set; get; }
         public Product Product { set; get; }
+
+       
     }
 }

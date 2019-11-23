@@ -17,5 +17,7 @@ namespace JesparWebApplication.Models
         public int CategoryId { set; get; }
         public Category Category { set; get; }
         public List<SelectListItem> CategorySelectListItems { set; get; }
+
+        public List<Product> Products { set; get; }
     }
 }

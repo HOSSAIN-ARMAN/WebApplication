@@ -88,8 +88,6 @@ D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.Repository.dll.config
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.pdb
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.dll.config
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csprojAssemblyReference.cache
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.dll.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\JesparWebApplication.pdb
@@ -180,6 +178,8 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplicatio
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.Repository.dll.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\bin\Jespar.DatabaseContext.dll.config
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csprojAssemblyReference.cache
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.csproj.CopyComplete
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\JesparWebApplication\obj\Debug\JesparWebApplication.pdb

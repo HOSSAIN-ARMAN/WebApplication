@@ -15,8 +15,6 @@ D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.BLL\obj\Debug\
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csproj.CopyComplete
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.dll
 D:\BITM.net-project-work\JesparWepApp\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.pdb
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csprojAssemblyReference.cache
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\Jespar.BLL.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\Jespar.BLL.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\Jespar.Model.dll
@@ -29,6 +27,8 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debu
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\Jespar.DatabaseContext.pdb
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\Jespar.DatabaseContext.dll.config
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\bin\Debug\EntityFramework.xml
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csprojAssemblyReference.cache
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.csproj.CopyComplete
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.BLL\obj\Debug\Jespar.BLL.pdb

@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201911221244342_Purchase.Designer.cs">
       <DependentUpon>201911221244342_Purchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911232019275_productCodeColumAddedtoPurchase.cs" />
+    <Compile Include="Migrations\201911232019275_productCodeColumAddedtoPurchase.Designer.cs">
+      <DependentUpon>201911232019275_productCodeColumAddedtoPurchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911221244342_Purchase.resx">
       <DependentUpon>201911221244342_Purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911232019275_productCodeColumAddedtoPurchase.resx">
+      <DependentUpon>201911232019275_productCodeColumAddedtoPurchase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

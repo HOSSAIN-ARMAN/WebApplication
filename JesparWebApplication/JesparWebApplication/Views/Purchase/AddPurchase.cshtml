@@ -24,7 +24,7 @@
                 <div class="grid-header">
                     <p class="text-md-right text-info">Supplier</p>
                     <hr />
-                    <form method="post" id="purchaseForm">
+                    <form method="post">
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">@Html.LabelFor(c => c.Date)</label>
                             <div class="col-sm-10">
@@ -45,7 +45,7 @@
                                 @Html.DropDownListFor(c => c.SupplierId, Model.SupplierSelectListItems, "--Select--", new { @class = "form-control" })
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
                 <div class="grid-body">
                     <div class="card">
@@ -80,9 +80,11 @@
                                         @*@Html.LabelFor(c => c.ProductId)*@
                                         <label for="colFormLabel" class="col-sm-3 col-form-label">Code</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" />
-                                            @*@Html.TextBoxFor(c => c.ProductId, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(c => c.ProductId)*@
+                                            
+                                            <input type="text" name="ProductCode" class="form-control" value="@ViewBag.ProductCode"/>
+
+                                            @*@Html.TextBoxFor(c => c.ProductCode, ((string)@ViewBag.ProductCode), new { @class = "form-control" })*@
+                                           
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -154,6 +156,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="submit" value="Save" class="form-control btn btn-sm btn-outline-light">
+                                        </div>
+                                    </div>
+
+                     </form>
                                     <div class="form-group row">
                                         <label for="colFormLabel" class="col-sm-3 col-form-label"></label>
                                         <div class="col-sm-6">
@@ -161,12 +170,12 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" id="sl" />
+
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <form method="post" id="purchaseForm">
+                          
                                 <div class="row">
                                     <div class="col-md-3">
                                         <input type="submit" value="Save" class="form-control btn btn-sm btn-outline-light">
@@ -189,7 +198,7 @@
                                     </thead>
 
                                 </table>
-                            </form>
+                          
 
 
                         </div>
@@ -220,13 +229,13 @@
             $("#addPurchase").click(function () {
                 $("#purchaseTable").append(
                                             '<tr><td>' + (sln++) +
-                                            '</td><td>' + $("#ProductId").val() +
-                                            '</td><td>' + $("#ManufractureDate").val() +
-                                            '</td><td>' + $("#ExoireDate").val() +
-                                            '</td><td>' + $("#Quantity").val() +
-                                            '</td><td>' + $("#UnitePrice").val() +
-                                            '</td><td>' + $("#TotalPrice").val() +
-                                            '</td><td>' + $("#Mrp").val() + '</td></tr>'                                         
+                                            '</td><td name="ProductId">' + $("#ProductId").val() +
+                                            '</td><td name="ManufractureDate">' + $("#ManufractureDate").val() +
+                                            '</td><td name="ExoireDate">' + $("#ExoireDate").val() +
+                                            '</td><td name="Quantity">' + $("#Quantity").val() +
+                                            '</td><td name="UnitePrice">' + $("#UnitePrice").val() +
+                                            '</td><td name="TotalPrice">' + $("#TotalPrice").val() +
+                                            '</td><td name="Mrp">' + $("#Mrp").val() + '</td></tr>'                                         
                                           );
 
             })

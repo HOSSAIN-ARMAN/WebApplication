@@ -12,6 +12,7 @@ namespace JesparWebApplication.Models
         public int Id { set; get; }
         public string Date { set; get; }
         public string InvoiceNo { set; get; }
+        public string ProductCode { set; get; }
         public string ManufractureDate { set; get; }
         public string ExoireDate { set; get; }
         public string Remarks { set; get; }
@@ -33,6 +34,12 @@ namespace JesparWebApplication.Models
         public int ProductId { set; get; }
         public Product Product { set; get; }
         public List<SelectListItem> ProductSelectListItems { set; get; }
+        
+        public List<Product> Products { set; get; }
+        //list 
+
+       
 
     }
+   
 }

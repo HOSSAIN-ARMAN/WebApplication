@@ -39,11 +39,18 @@ namespace JesparWebApplication.Controllers
 
             purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
                                                                                     {
-                                                                                        Value = c.CategoryId.ToString(),
+                                                                                        Value = c.Id.ToString(),
                                                                                         Text = c.Name
                                                                                     }).ToList();
 
-
+            //if(purchaseViewModel.ProductSelectListItems)
+            string producCode = "";
+            purchaseViewModel.Products = _productManager.GetAll();
+            foreach(var data in purchaseViewModel.Products)
+            {
+                producCode = data.Code;
+            }
+            ViewBag.ProductCode = producCode;
 
             return View(purchaseViewModel);
         }
@@ -67,6 +74,8 @@ namespace JesparWebApplication.Controllers
                                                                                             Value = c.Id.ToString(),
                                                                                             Text = c.Name
                                                                                         }).ToList();
+
+
 
 
             string message = "";
