@@ -19,10 +19,10 @@ namespace JesparWebApplication.Controllers
         public ActionResult Save()
         {
             SupplierViewModel supplierViewModel = new SupplierViewModel();
-           
+
 
             supplierViewModel.Suppliers = _supplierManager.GetAll();
-            
+
             return View(supplierViewModel);
         }
         [HttpPost]
@@ -53,7 +53,7 @@ namespace JesparWebApplication.Controllers
 
             if (ModelState.IsValid)
             {
-                if(isExits == supplierViewModel.Code)
+                if (isExits == supplierViewModel.Code)
                 {
 
                     codeExitsMessage = "this Code ALreasy Exits";
@@ -62,7 +62,7 @@ namespace JesparWebApplication.Controllers
                 }
                 else
                 {
-                   
+
                     if (_supplierManager.Save(supplier))
                     {
                         message = "Supplier Data Save Successfully";
@@ -80,9 +80,9 @@ namespace JesparWebApplication.Controllers
             {
                 message = "ModelState failed";
             }
-           
+
             ViewBag.message = message;
-            
+
             supplierViewModel.Suppliers = _supplierManager.GetAll();
 
             return View(supplierViewModel);
@@ -99,7 +99,7 @@ namespace JesparWebApplication.Controllers
         public ActionResult Search(SupplierViewModel supplierViewModel)
         {
             List<Supplier> suppliers = _supplierManager.GetAll();
-            if(supplierViewModel.Code != null)
+            if (supplierViewModel.Code != null)
             {
                 suppliers = suppliers.Where(c => c.Code.Contains(supplierViewModel.Code)).ToList();
             }
@@ -107,8 +107,8 @@ namespace JesparWebApplication.Controllers
             //return View(supplierViewModel);
             return View(supplierViewModel);
 
-            
-           
+
+
 
         }
         ////[HttpGet]
@@ -124,7 +124,7 @@ namespace JesparWebApplication.Controllers
         {
             var supplier = _supplierManager.GetById(id);
             SupplierViewModel supplierViewModel = Mapper.Map<SupplierViewModel>(supplier);
-                       
+
             supplierViewModel.Suppliers = _supplierManager.GetAll();
             return View(supplierViewModel);
         }
@@ -132,7 +132,7 @@ namespace JesparWebApplication.Controllers
         public ActionResult Edit(SupplierViewModel supplierViewModel)
         {
             string message = "";
-           
+
             if (ModelState.IsValid)
             {
                 Supplier supplier = Mapper.Map<Supplier>(supplierViewModel);
@@ -176,7 +176,7 @@ namespace JesparWebApplication.Controllers
 
             return RedirectToAction("Search");
         }
-        
+
 
     }
 }

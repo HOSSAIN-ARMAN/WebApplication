@@ -27,7 +27,7 @@ namespace Jespar.Repository.Repository
         public bool Update(Supplier supplier)
         {
             Supplier aSupplier = _dbContext.Suppliers.FirstOrDefault(c => c.Id == supplier.Id);
-            if(aSupplier != null)
+            if (aSupplier != null)
             {
                 aSupplier.Code = supplier.Code;
                 aSupplier.Name = supplier.Name;
@@ -45,6 +45,6 @@ namespace Jespar.Repository.Repository
             return _dbContext.SaveChanges() > 0;
         }
 
-       
+
     }
 }

@@ -135,7 +135,6 @@
     <Content Include="Theme\css\demo_1\style.css" />
     <Content Include="Theme\css\demo_2\style.css" />
     <Content Include="Theme\css\shared\style.css" />
-    <Content Include="Theme\docs\docs.html" />
     <Content Include="Theme\images\logo.svg" />
     <Content Include="Theme\images\logo_mini.svg" />
     <Content Include="Theme\images\profile\female\image_1.png" />
@@ -173,14 +172,10 @@
     <Content Include="Theme\js\dashboard.js" />
     <Content Include="Theme\js\highlight.pack.js" />
     <Content Include="Theme\js\template.js" />
-    <Content Include="Theme\pages\charts\chartjs.html" />
     <Content Include="Theme\pages\forms\form-elements.html" />
     <Content Include="Theme\pages\icons\material-icons.html" />
     <Content Include="Theme\pages\sample-pages\error_2.html" />
     <Content Include="Theme\pages\sample-pages\login_1.html" />
-    <Content Include="Theme\pages\ui-components\buttons.html" />
-    <Content Include="Theme\pages\ui-components\tables.html" />
-    <Content Include="Theme\pages\ui-components\typography.html" />
     <Content Include="Theme\vendors\ace-builds\src-min\ace.js" />
     <Content Include="Theme\vendors\ace-builds\src-min\ext-beautify.js" />
     <Content Include="Theme\vendors\ace-builds\src-min\ext-elastic_tabstops_lite.js" />

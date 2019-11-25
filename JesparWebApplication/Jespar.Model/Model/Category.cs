@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Jespar.Model.Model
 {
     public class Category
@@ -11,14 +12,14 @@ namespace Jespar.Model.Model
         public Category()
         {
             Products = new List<Product>();
-            
+
         }
-        
+
         public int Id { set; get; }
         public string Code { set; get; }
         public string Name { set; get; }
         public List<Product> Products { set; get; }
 
-       
+
     }
 }

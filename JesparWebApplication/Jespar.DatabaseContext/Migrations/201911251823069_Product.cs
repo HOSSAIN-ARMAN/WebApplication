@@ -3,7 +3,7 @@ namespace Jespar.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CategoryAddedToProduct : DbMigration
+    public partial class Product : DbMigration
     {
         public override void Up()
         {

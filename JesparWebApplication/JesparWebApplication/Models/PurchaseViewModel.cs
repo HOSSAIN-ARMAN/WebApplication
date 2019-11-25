@@ -4,42 +4,51 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Jespar.Model.Model;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace JesparWebApplication.Models
 {
     public class PurchaseViewModel
     {
+        
         public int Id { set; get; }
-        public string Date { set; get; }
+        public DateTime Date { set; get; }
         public string InvoiceNo { set; get; }
-        public string ProductCode { set; get; }
-        public string ManufractureDate { set; get; }
-        public string ExoireDate { set; get; }
-        public string Remarks { set; get; }
-        public int Quantity { set; get; }
-        public int UnitePrice { set; get; }
-        public int TotalPrice { set; get; }
-        public int Mrp { set; get; }
 
-        //Associtate Supplier
         public int SupplierId { set; get; }
         public Supplier Supplier { set; get; }
-        public List<SelectListItem> SupplierSelectListItems { set; get; }
 
-        //Associate category
+        public List<PurchaseDetails> PurchaseDetailses { set; get; }
+
+
+        //-------------------------------
+
+
+        public string Code { set; get; }
+        public DateTime ManuFractureDateTime { set; get; }
+        public DateTime ExpireDateTime { set; get; }
+        public string Remarks { set; get; }
+        public int Quantity { set; get; }
+        public int UnitPrice { set; get; }
+        public int TotalPrice { set; get; }
+        public int MRP { set; get; }
+
+        public int ProductId { set; get; }
+        public Product Product { set; get; }
+        public int PurchaseId { set; get; }
+        public Purchase Purchase { set; get; }
+
+        //----------------------------------------
+        public List<SelectListItem> SupplierSelectListItems { set; get; }
+        public List<SelectListItem> ProductSelectListItems { set; get; }
+
         public int CategoryId { set; get; }
         public Category Category { set; get; }
         public List<SelectListItem> CategorySelectListItems { set; get; }
-        //Associate Product
-        public int ProductId { set; get; }
-        public Product Product { set; get; }
-        public List<SelectListItem> ProductSelectListItems { set; get; }
-        
-        public List<Product> Products { set; get; }
-        //list 
 
-       
+
 
     }
-   
+
 }

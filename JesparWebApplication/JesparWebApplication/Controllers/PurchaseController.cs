@@ -10,10 +10,10 @@ using AutoMapper;
 
 namespace JesparWebApplication.Controllers
 {
-    
+
     public class PurchaseController : Controller
     {
-        
+
         SupplierManager _supplierManager = new SupplierManager();
         CategoryManager _categoryManager = new CategoryManager();
         ProductManager _productManager = new ProductManager();
@@ -23,17 +23,17 @@ namespace JesparWebApplication.Controllers
         public ActionResult AddPurchase()
         {
             PurchaseViewModel purchaseViewModel = new PurchaseViewModel();
-            purchaseViewModel.SupplierSelectListItems = _supplierManager.GetAll().Select(c=> new SelectListItem
+            purchaseViewModel.SupplierSelectListItems = _supplierManager.GetAll().Select(c => new SelectListItem
                                                                                     {
-                                                                                       Value = c.Id.ToString(),
-                                                                                       Text = c.Name
+                                                                                        Value = c.Id.ToString(),
+                                                                                        Text = c.Name
                                                                                     }).ToList();
 
 
-            purchaseViewModel.CategorySelectListItems = _categoryManager.GetAll().Select(c=> new SelectListItem
+            purchaseViewModel.CategorySelectListItems = _categoryManager.GetAll().Select(c => new SelectListItem
                                                                                     {
-                                                                                       Value = c.Id.ToString(),
-                                                                                       Text = c.Name
+                                                                                        Value = c.Id.ToString(),
+                                                                                        Text = c.Name
                                                                                     }).ToList();
 
 
@@ -44,13 +44,7 @@ namespace JesparWebApplication.Controllers
                                                                                     }).ToList();
 
             //if(purchaseViewModel.ProductSelectListItems)
-            string producCode = "";
-            purchaseViewModel.Products = _productManager.GetAll();
-            foreach(var data in purchaseViewModel.Products)
-            {
-                producCode = data.Code;
-            }
-            ViewBag.ProductCode = producCode;
+
 
             return View(purchaseViewModel);
         }
@@ -58,22 +52,22 @@ namespace JesparWebApplication.Controllers
         public ActionResult AddPurchase(PurchaseViewModel purchaseViewModel)
         {
             purchaseViewModel.SupplierSelectListItems = _supplierManager.GetAll().Select(c => new SelectListItem
-                                                                                        {
-                                                                                            Value = c.Id.ToString(),
-                                                                                            Text = c.Name
-                                                                                        }).ToList();
+                                                                                    {
+                                                                                        Value = c.Id.ToString(),
+                                                                                        Text = c.Name
+                                                                                    }).ToList();
 
             purchaseViewModel.CategorySelectListItems = _categoryManager.GetAll().Select(c => new SelectListItem
-                                                                                        {
-                                                                                            Value = c.Id.ToString(),
-                                                                                            Text = c.Name
-                                                                                        }).ToList();
+                                                                                    {
+                                                                                        Value = c.Id.ToString(),
+                                                                                        Text = c.Name
+                                                                                    }).ToList();
 
             purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
-                                                                                        {
-                                                                                            Value = c.Id.ToString(),
-                                                                                            Text = c.Name
-                                                                                        }).ToList();
+                                                                                    {
+                                                                                        Value = c.Id.ToString(),
+                                                                                        Text = c.Name
+                                                                                    }).ToList();
 
 
 

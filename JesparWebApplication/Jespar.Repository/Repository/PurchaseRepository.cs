@@ -16,6 +16,6 @@ namespace Jespar.Repository.Repository
             _dbContext.Purchases.Add(purchase);
             return _dbContext.SaveChanges() > 0;
         }
-        
+
     }
 }

@@ -14,8 +14,8 @@ namespace JesparWebApplication.Controllers
 
         ProductManager _productManager = new ProductManager();
         CategoryManager _categoryManager = new CategoryManager();
-       [HttpGet]
-       public ActionResult AddProduct()
+        [HttpGet]
+        public ActionResult AddProduct()
         {
             ProductViewModel productViewModel = new ProductViewModel();
             productViewModel.CategorySelectListItems = _categoryManager.GetAll()

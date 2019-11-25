@@ -7,13 +7,13 @@ namespace Jespar.DatabaseContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CategoryAddedToProduct : IMigrationMetadata
+    public sealed partial class Supplier : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CategoryAddedToProduct));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Supplier));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911181213133_CategoryAddedToProduct"; }
+            get { return "201911251827000_Supplier"; }
         }
         
         string IMigrationMetadata.Source

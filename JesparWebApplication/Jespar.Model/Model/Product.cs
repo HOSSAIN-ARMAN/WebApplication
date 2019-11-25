@@ -8,10 +8,9 @@ namespace Jespar.Model.Model
 {
     public class Product
     {
-        public Product()
-        {
-            Purchases = new List<Purchase>();
-        }
+        //{
+        //    Purchases = new List<Purchase>();
+        //}
         public int Id { set; get; }
         public string Code { set; get; }
         public string Name { set; get; }
@@ -20,6 +19,6 @@ namespace Jespar.Model.Model
         public int CategoryId { set; get; }
         public Category Category { set; get; }
 
-        public List<Purchase> Purchases { set; get; }
+        //public List<Purchase> Purchases { set; get; }
     }
 }

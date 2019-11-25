@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Jespar.Model.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace JesparWebApplication.Models
 {
