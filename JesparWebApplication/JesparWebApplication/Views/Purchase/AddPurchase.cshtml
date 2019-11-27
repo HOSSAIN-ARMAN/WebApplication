@@ -63,7 +63,8 @@
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Category</label>
                                             <div class="col-sm-3">
 
-                                                @Html.DropDownListFor(c => c.CategoryId, Model.CategorySelectListItems, "--Select--", new { @class = "form-control" })
+                                                @*@Html.DropDownListFor(c => c.CategoryId, Model.CategorySelectListItems, "--Select--", new { @class = "form-control" })*@
+                                                @Html.DropDownList("Category", null, "--Select--", new { @class = "form-control" })
 
                                             </div>
                                         </div>
@@ -72,8 +73,10 @@
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Product</label>
                                             <div class="col-sm-3">
 
-                                                @Html.DropDownListFor(c => c.ProductId, Model.ProductSelectListItems, "--Select--", new { @class = "form-control" })
-
+                                                @*@Html.DropDownListFor(c => c.ProductId, Model.ProductSelectListItems, "--Select--", new { @class = "form-control" })*@
+                                                <select id="ProductId" class="form-control">
+                                                    <option>--Select--</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -221,6 +224,58 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Category").change(function () {               
+                var categoryId = $("#Category").val();
+                var jsonRequestData = { categoryId: categoryId };
+                $.ajax({
+                    url: "/Purchase/GetProductByCategoryId",
+                    type: "POST",
+                    data: jsonRequestData,
+                    success: function (products) {
+
+                        $("#ProductId").empty();
+                        $("#ProductId").append("--select--");
+                        
+                        $.each(products, function (key, value) {
+                           
+                            $("#ProductId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            $("#Code").val(value.Code);
+                        });
+                    },
+                    error: function () {                       
+                        alert("ajax Not working");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ProductId").change(function () {
+                var productId = $("#ProductId").val();
+                var jsonrequestData = { productId: productId };
+                $.ajax({
+                    url: "/Purchase/GetProductCodeByProductId",
+                    type: "POST",
+                    data: jsonrequestData,
+                    success: function (productCode) {
+                        $("#Code").empty();
+                        $.each(productCode, function (key, value) {
+                            $("#Code").val(value.Code);
+                        });
+                    },
+                    error: function () {
+                        alert("not done");
+                    }
+                });
+            });
+        });
+    </script>
 
     <script type="text/javascript">
 

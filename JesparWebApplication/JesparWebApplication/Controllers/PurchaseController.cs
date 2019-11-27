@@ -36,18 +36,34 @@ namespace JesparWebApplication.Controllers
                                                                                         Text = c.Name
                                                                                     }).ToList();
 
+            ViewBag.Category = purchaseViewModel.CategorySelectListItems;
 
-            purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
-                                                                                    {
-                                                                                        Value = c.Id.ToString(),
-                                                                                        Text = c.Name
-                                                                                    }).ToList();
+            //purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
+            //                                                                        {
+            //                                                                            Value = c.Id.ToString(),
+            //                                                                            Text = c.Name
+            //                                                                        }).ToList();
 
             //if(purchaseViewModel.ProductSelectListItems)
 
 
             return View(purchaseViewModel);
         }
+
+        public JsonResult GetProductByCategoryId(int categoryId)
+        {
+            var productList = _productManager.GetAll().Where(c => c.CategoryId == categoryId).ToList();
+            var products = from p in productList select (new { p.Id, p.Name, p.Code});
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetProductCodeByProductId(int productId)
+        {
+            var productList = _productManager.GetAll().Where(c => c.Id == productId).ToList();
+            var productCode = from p in productList select (new { p.Code });
+            return Json(productCode, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public ActionResult AddPurchase(PurchaseViewModel purchaseViewModel)
         {
@@ -57,17 +73,20 @@ namespace JesparWebApplication.Controllers
                                                                                         Text = c.Name
                                                                                     }).ToList();
 
+
             purchaseViewModel.CategorySelectListItems = _categoryManager.GetAll().Select(c => new SelectListItem
                                                                                     {
                                                                                         Value = c.Id.ToString(),
                                                                                         Text = c.Name
                                                                                     }).ToList();
 
-            purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
-                                                                                    {
-                                                                                        Value = c.Id.ToString(),
-                                                                                        Text = c.Name
-                                                                                    }).ToList();
+            ViewBag.Category = purchaseViewModel.CategorySelectListItems;
+
+            //purchaseViewModel.ProductSelectListItems = _productManager.GetAll().Select(c => new SelectListItem
+            //                                                                        {
+            //                                                                            Value = c.Id.ToString(),
+            //                                                                            Text = c.Name
+            //                                                                        }).ToList();
 
 
 
