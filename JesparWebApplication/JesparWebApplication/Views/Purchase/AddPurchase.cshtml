@@ -144,13 +144,13 @@
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Previous Unit Price</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" />
+                                                <input type="text" id="PreviousUnitPrice" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Previous MRP</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" />
+                                                <input type="text" id="PreviousMrp" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -208,7 +208,7 @@
 
                 </div>
                 @*</form>*@
-                
+
             </form>
         </div>
     </div>
@@ -227,7 +227,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#Category").change(function () {               
+            $("#Category").change(function () {
                 var categoryId = $("#Category").val();
                 var jsonRequestData = { categoryId: categoryId };
                 $.ajax({
@@ -238,14 +238,14 @@
 
                         $("#ProductId").empty();
                         $("#ProductId").append("--select--");
-                        
+
                         $.each(products, function (key, value) {
-                           
+
                             $("#ProductId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
-                            $("#Code").val(value.Code);
+                            //$("#Code").val(value.Code);
                         });
                     },
-                    error: function () {                       
+                    error: function () {
                         alert("ajax Not working");
                     }
                 });
@@ -265,8 +265,33 @@
                     data: jsonrequestData,
                     success: function (productCode) {
                         $("#Code").empty();
-                        $.each(productCode, function (key, value) {
-                            $("#Code").val(value.Code);
+                        $("#Code").val(productCode[0].Code);
+                        //$.each(productCode, function (key, value) {
+                        //    $("#Code").val(value.Code);
+                        //});
+                    },
+                    error: function () {
+                        alert("not done");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Code").change(function () {
+                var code = $("#Code").val();
+                var jsonrequestData = { code: code };
+                $.ajax({
+                    url: "/Purchase/GetPreviousProductPurchaseInfoByCode",
+                    type: "POST",
+                    data: jsonrequestData,
+                    success: function (purchaseProductCode) {
+                        //alert("done");
+                        $.each(purchaseProductCode, function (key, value) {
+                            $("#PreviousUnitPrice").val(value.UnitPrice);
+                            $("#PreviousMrp").val(value.MRP);
                         });
                     },
                     error: function () {
@@ -279,6 +304,50 @@
 
     <script type="text/javascript">
 
+        //calculate total price
+
+        $(document).ready(function () {
+            var quantity = 0;
+            var unitPrice = 0;
+            var totalPrice = 0;
+
+            $("#Quantity").keyup(function () {
+                if (!IsNullOrEmpty($("#Quantity").val())) {
+                    quantity = $("#Quantity").val();
+                }
+                if (!IsNullOrEmpty($("#UnitPrice").val())) {
+                    unitPrice = $("#UnitPrice").val();
+                }
+
+                totalPrice = quantity * unitPrice;
+                $("#TotalPrice").val(totalPrice);
+            });
+            $("#UnitPrice").keyup(function () {
+                if (!IsNullOrEmpty($("#Quantity").val())) {
+                    quantity = $("#Quantity").val();
+                }
+                if (!IsNullOrEmpty($("#UnitPrice").val())) {
+                    unitPrice = $("#UnitPrice").val();
+                }
+                totalPrice = quantity * unitPrice;
+                $("#TotalPrice").val(totalPrice);
+            });
+
+            function IsNullOrEmpty(data) {
+                if (data === undefined || data === "" || isNaN(data)) {
+                    return true;
+                }
+                return false;
+            }
+
+
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+        //create table before insert to database
 
         $(document).ready(function () {
             var index = 0;
@@ -347,67 +416,67 @@
 
 
 
-                //$(document).ready(function () {
+                    //$(document).ready(function () {
 
-                //    var sln = 1;
-                //    parseInt(sln);
+                    //    var sln = 1;
+                    //    parseInt(sln);
 
-                //    $("#addPurchase").click(function () {
-                //        $("#purchaseTable").append(
-                //                                    '<tr><td>' + (sln++) +
-                //                                    '</td><td name="ProductId">' + $("#ProductId").val() +
-                //                                    '</td><td name="ManufractureDate">' + $("#ManufractureDate").val() +
-                //                                    '</td><td name="ExoireDate">' + $("#ExoireDate").val() +
-                //                                    '</td><td name="Quantity">' + $("#Quantity").val() +
-                //                                    '</td><td name="UnitePrice">' + $("#UnitePrice").val() +
-                //                                    '</td><td name="TotalPrice">' + $("#TotalPrice").val() +
-                //                                    '</td><td name="Mrp">' + $("#Mrp").val() + '</td></tr>'
-                //                                  );
+                    //    $("#addPurchase").click(function () {
+                    //        $("#purchaseTable").append(
+                    //                                    '<tr><td>' + (sln++) +
+                    //                                    '</td><td name="ProductId">' + $("#ProductId").val() +
+                    //                                    '</td><td name="ManufractureDate">' + $("#ManufractureDate").val() +
+                    //                                    '</td><td name="ExoireDate">' + $("#ExoireDate").val() +
+                    //                                    '</td><td name="Quantity">' + $("#Quantity").val() +
+                    //                                    '</td><td name="UnitePrice">' + $("#UnitePrice").val() +
+                    //                                    '</td><td name="TotalPrice">' + $("#TotalPrice").val() +
+                    //                                    '</td><td name="Mrp">' + $("#Mrp").val() + '</td></tr>'
+                    //                                  );
 
-                //    })
-                //})
-
-
-
-
-
-                            //function AddPurchaseTableRow() {
-
-                            //    var purchaseTable = document.getElementById("purchaseTable"),
-
-                            //        newRow = purchaseTable.insertRow(purchaseTable.length),
-
-                            //        cell1 = newRow.insertCell(0),
-                            //        cell2 = newRow.insertCell(1),
-                            //        cell3 = newRow.insertCell(2)
-                            //        cell4 = newRow.insertCell(3),
-                            //        cell5 = newRow.insertCell(4),
-                            //        cell6 = newRow.insertCell(5),
-                            //        cell7 = newRow.insertCell(6),
-
-
-
-                            //        product = document.getElementById("ProductId").value,
-                            //        ManufractureDate = document.getElementById("ManufractureDate").value,
-                            //        ExoireDate = document.getElementById("ExoireDate").value,
-                            //        Quantity = document.getElementById("Quantity").value,
-                            //        UnitePrice = document.getElementById("UnitePrice").value,
-                            //        TotalPrice = document.getElementById("TotalPrice").value,
-                            //        Mrp = document.getElementById("Mrp").value,
+                    //    })
+                    //})
 
 
 
 
-                            //    cell1.innerHTML = product;
-                            //    cell2.innerHTML = ManufractureDate;
-                            //    cell3.innerHTML = ExoireDate;
-                            //    cell4.innerHTML = Quantity;
-                            //    cell5.innerHTML = UnitePrice;
-                            //    cell6.innerHTML = TotalPrice;
-                            //    cell7.innerHTML = Mrp;
+
+                                //function AddPurchaseTableRow() {
+
+                                //    var purchaseTable = document.getElementById("purchaseTable"),
+
+                                //        newRow = purchaseTable.insertRow(purchaseTable.length),
+
+                                //        cell1 = newRow.insertCell(0),
+                                //        cell2 = newRow.insertCell(1),
+                                //        cell3 = newRow.insertCell(2)
+                                //        cell4 = newRow.insertCell(3),
+                                //        cell5 = newRow.insertCell(4),
+                                //        cell6 = newRow.insertCell(5),
+                                //        cell7 = newRow.insertCell(6),
 
 
-                            //}
+
+                                //        product = document.getElementById("ProductId").value,
+                                //        ManufractureDate = document.getElementById("ManufractureDate").value,
+                                //        ExoireDate = document.getElementById("ExoireDate").value,
+                                //        Quantity = document.getElementById("Quantity").value,
+                                //        UnitePrice = document.getElementById("UnitePrice").value,
+                                //        TotalPrice = document.getElementById("TotalPrice").value,
+                                //        Mrp = document.getElementById("Mrp").value,
+
+
+
+
+                                //    cell1.innerHTML = product;
+                                //    cell2.innerHTML = ManufractureDate;
+                                //    cell3.innerHTML = ExoireDate;
+                                //    cell4.innerHTML = Quantity;
+                                //    cell5.innerHTML = UnitePrice;
+                                //    cell6.innerHTML = TotalPrice;
+                                //    cell7.innerHTML = Mrp;
+
+
+                                //}
     </script>
 
 

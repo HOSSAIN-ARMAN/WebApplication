@@ -53,15 +53,22 @@ namespace JesparWebApplication.Controllers
         public JsonResult GetProductByCategoryId(int categoryId)
         {
             var productList = _productManager.GetAll().Where(c => c.CategoryId == categoryId).ToList();
-            var products = from p in productList select (new { p.Id, p.Name, p.Code});
+            var products = from p in productList select (new { p.Id, p.Name});
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetProductCodeByProductId(int productId)
         {
             var productList = _productManager.GetAll().Where(c => c.Id == productId).ToList();
-            var productCode = from p in productList select (new { p.Code });
+            var productCode = from p in productList select (new { p.Code});
             return Json(productCode, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetPreviousProductPurchaseInfoByCode(string code)
+        {
+            var purchaseProductCodeList = _purchaseManager.GetAll().Where(c => c.Code == code).ToList();
+            var purchaseProductCode = from p in purchaseProductCodeList select (new { p.UnitPrice, p.MRP});
+            return Json(purchaseProductCode, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
