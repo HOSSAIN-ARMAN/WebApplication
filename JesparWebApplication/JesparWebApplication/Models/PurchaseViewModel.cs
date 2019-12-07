@@ -13,13 +13,20 @@ namespace JesparWebApplication.Models
     {
         
         public int Id { set; get; }
+
+       
         public DateTime Date { set; get; }
         public string InvoiceNo { set; get; }
 
+        public string SupplierName { set; get; }
         public int SupplierId { set; get; }
         public Supplier Supplier { set; get; }
 
-        public List<PurchaseDetails> PurchaseDetailses { set; get; }
+        //for create table 
+        public List<Purchase> Purchases { set; get; }
+
+        
+
 
 
         //-------------------------------
@@ -39,6 +46,7 @@ namespace JesparWebApplication.Models
         public int PurchaseId { set; get; }
         public Purchase Purchase { set; get; }
 
+        public List<PurchaseDetails> PurchaseDetailses { set; get; }
         //----------------------------------------
         public List<SelectListItem> SupplierSelectListItems { set; get; }
         public List<SelectListItem> ProductSelectListItems { set; get; }

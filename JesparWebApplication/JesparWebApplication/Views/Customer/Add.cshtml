@@ -1,0 +1,75 @@
+﻿@model JesparWebApplication.Models.CustomerViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section Search{
+    
+    <div class="input-group">
+
+        <span class="notification-indicator notification-indicator-info notification-indicator-ripple"></span>
+        <a href="@Url.Action("DisplayCustomer", "Customer")"><i class="grid-icon mdi mdi-table-of-contents mdi-2x"></i></a>
+
+    </div>
+}
+
+
+
+
+        <div class="container">
+            <form method="post">
+                <table class="table table-striped table-dark">
+                    <tr>
+                        <td>Customer Code</td>
+                        <td><input type="text" name="CustomerCode" value="@Model.CustomerCode" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Customer Name</td>
+                        <td><input type="text" name="CustomerName" value="@Model.CustomerName" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td><input type="text" name="Contact" value="@Model.Contact" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Customer Email</td>
+                        <td><input type="text" name="CustomerEmail" value="@Model.CustomerEmail" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Customer Address</td>
+                        <td><input type="text" name="CustomerAddress" value="@Model.CustomerAddress" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Loyalty Point</td>
+                        <td><input type="text" name="LoyaltyPoint" value="@Model.LoyaltyPoint" /></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-success">Save</button></td>
+                        <td>
+                            @if (ViewBag.Message != null)
+                            {
+                                <h3>
+                                    <b>
+                                        @ViewBag.Message;
+                                    </b>
+                                </h3>
+                            }
+
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+
+    

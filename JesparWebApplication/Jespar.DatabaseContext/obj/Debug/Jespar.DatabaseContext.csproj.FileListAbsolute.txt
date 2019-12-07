@@ -27,9 +27,14 @@ D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseCont
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Category.resources
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Product.resources
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Supplier.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Purchase.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.updateOne.resources
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.GenerateResource.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.CoreCompileInputs.cache
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.csproj.CopyComplete
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.dll
 D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.pdb
-D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Purchase.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Customer.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.CodeAddedToPurchase.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.updataPurchaseCode.resources
+D:\BITM.net-project-work\WebApplication\JesparWebApplication\Jespar.DatabaseContext\obj\Debug\Jespar.DatabaseContext.Migrations.Sales.resources

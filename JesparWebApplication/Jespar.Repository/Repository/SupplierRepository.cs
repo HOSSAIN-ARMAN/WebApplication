@@ -34,7 +34,7 @@ namespace Jespar.Repository.Repository
                 aSupplier.Address = supplier.Address;
                 aSupplier.Email = supplier.Email;
                 aSupplier.Contact = supplier.Contact;
-                aSupplier.LoyaltyPoint = supplier.LoyaltyPoint;
+                aSupplier.PersonContact = supplier.PersonContact;
             }
             return _dbContext.SaveChanges() > 0;
         }

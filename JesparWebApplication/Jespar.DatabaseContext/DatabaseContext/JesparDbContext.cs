@@ -13,7 +13,12 @@ namespace Jespar.DatabaseContext.DatabaseContext
         public DbSet<Supplier> Suppliers { set; get; }
         public DbSet<Category> Categories { set; get; }
         public DbSet<Product> Products { set; get; }
+
+        public DbSet<Customer> Customers { set; get; }
         public DbSet<Purchase> Purchases { set; get; }
         public DbSet<PurchaseDetails> PurchaseDetailses { set; get; }
+
+        public DbSet<Sales> Sales { set; get; }
+        public DbSet<SalesDetails> SalesDetails { set; get; }
     }
 }

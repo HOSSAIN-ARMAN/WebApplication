@@ -18,7 +18,7 @@ namespace Jespar.Model.Model
         public string Address { set; get; }
         public string Email { set; get; }
         public string Contact { set; get; }
-        public string LoyaltyPoint { set; get; }
+        public string PersonContact { set; get; }
 
         public List<Purchase> Purchases { set; get; }
     }

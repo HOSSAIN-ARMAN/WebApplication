@@ -7,7 +7,24 @@
 @section Mystyle{
 
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">*@
+    <style>
+        .btn {
+            border: double;
+        }
+    </style>
+}
 
+
+@section Search{
+
+
+    <div class="input-group">
+
+        <span class="notification-indicator notification-indicator-info notification-indicator-ripple"></span>
+        <a href="@Url.Action("PurchaseInfo", "Purchase")"><i class="grid-icon mdi mdi-table-of-contents mdi-2x"></i></a>
+
+    </div>
 }
 
 <div class="container">
@@ -28,7 +45,7 @@
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">@Html.LabelFor(c => c.Date)</label>
                             <div class="col-sm-10">
-                                @Html.TextBoxFor(c => c.Date, new { @class = "form-control" })
+                                @Html.TextBoxFor(c => c.Date, new { @class = "form-control", @type = "date" })
                                 @Html.ValidationMessageFor(c => c.Date)
                             </div>
                         </div>
@@ -44,6 +61,10 @@
                             <div class="col-sm-10">
                                 @Html.DropDownListFor(c => c.SupplierId, Model.SupplierSelectListItems, "--Select--", new { @class = "form-control" })
                             </div>
+
+                            @Html.TextBoxFor(c => c.SupplierName, new { @class = "form-control", @type = "hidden" })
+                            @*<input type="text" id="purchaseCode" name="Code" />*@
+                           
                         </div>
 
                     </div>
@@ -61,7 +82,7 @@
 
 
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Category</label>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
 
                                                 @*@Html.DropDownListFor(c => c.CategoryId, Model.CategorySelectListItems, "--Select--", new { @class = "form-control" })*@
                                                 @Html.DropDownList("Category", null, "--Select--", new { @class = "form-control" })
@@ -71,20 +92,23 @@
                                         <div class="form-group row">
                                             @*@Html.LabelFor(c => c.ProductId)*@
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Product</label>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
 
                                                 @*@Html.DropDownListFor(c => c.ProductId, Model.ProductSelectListItems, "--Select--", new { @class = "form-control" })*@
                                                 <select id="ProductId" class="form-control">
-                                                    <option>--Select--</option>
+                                                    <option value="0">--Select--</option>
+                                                  
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             @*@Html.LabelFor(c => c.ProductId)*@
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Code</label>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
 
                                                 <input type="text" id="Code" name="ProductCode" class="form-control" />
+                                                <input type="hidden" id="productName" name="productName" />
+                                                
 
                                                 @*@Html.TextBoxFor(c => c.ProductCode, ((string)@ViewBag.ProductCode), new { @class = "form-control" })*@
 
@@ -92,22 +116,22 @@
                                         </div>
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Available quantity</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" class="form-control" />
+                                            <div class="col-sm-5">
+                                                <input type="text" id="availableQuantity" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Manufracture Date</label>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
                                                 @*<input type="text" class="form-control" name="ManuFractureDateTime" id="ManuFractureDateTime" />*@
-                                                @Html.TextBoxFor(c => c.ManuFractureDateTime, new { @class = "form-control" })
+                                                @Html.TextBoxFor(c => c.ManuFractureDateTime, new { @class = "form-control", @type = "date" })
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="colFormLabel" class="col-sm-3 col-form-label">Expire Date</label>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-5">
                                                 @*<input type="text" class="form-control" name="ExpireDateTime" id="ExpireDateTime" />*@
-                                                @Html.TextBoxFor(c => c.ExpireDateTime, new { @class = "form-control" })
+                                                @Html.TextBoxFor(c => c.ExpireDateTime, new { @class = "form-control", @type = "date" })
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -121,40 +145,40 @@
                                     <div class="Col-md-6">
 
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">@Html.LabelFor(c => c.Quantity)</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">@Html.LabelFor(c => c.Quantity)</label>
                                             <div class="col-sm-6">
                                                 @Html.TextBoxFor(c => c.Quantity, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(c => c.Quantity)
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">@Html.LabelFor(c => c.UnitPrice)</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">@Html.LabelFor(c => c.UnitPrice)</label>
                                             <div class="col-sm-6">
                                                 @Html.TextBoxFor(c => c.UnitPrice, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(c => c.UnitPrice)
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">@Html.LabelFor(c => c.TotalPrice)</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">@Html.LabelFor(c => c.TotalPrice)</label>
                                             <div class="col-sm-6">
                                                 @Html.TextBoxFor(c => c.TotalPrice, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(c => c.TotalPrice)
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">Previous Unit Price</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">Previous Unit Price</label>
                                             <div class="col-sm-6">
                                                 <input type="text" id="PreviousUnitPrice" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">Previous MRP</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">Previous MRP</label>
                                             <div class="col-sm-6">
                                                 <input type="text" id="PreviousMrp" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label">@Html.LabelFor(c => c.MRP)</label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label">@Html.LabelFor(c => c.MRP)</label>
                                             <div class="col-sm-6">
                                                 @Html.TextBoxFor(c => c.MRP, new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(c => c.MRP)
@@ -162,7 +186,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="colFormLabel" class="col-sm-3 col-form-label"></label>
+                                            <label for="colFormLabel" class="col-sm-6 col-form-label"></label>
                                             <div class="col-sm-6">
                                                 @*<button class="btn btn-sm btn-block btn-outline-success" id="addPurchase">Add</button>*@
                                                 <input type="button" class="btn btn-sm btn-block btn-outline-success" id="addPurchase" value="Add" />
@@ -187,7 +211,6 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>SL</th>
-                                            <th>Product</th>
                                             <th>Code</th>
                                             <th>Manufracture Date</th>
                                             <th>Expire Date</th>
@@ -196,6 +219,7 @@
                                             <th>Unit Price</th>
                                             <th>Total Price</th>
                                             <th>MRP</th>
+                                            @*<th>Product</th>*@
 
                                         </tr>
                                     </thead>
@@ -213,6 +237,9 @@
         </div>
     </div>
 
+
+
+
 </div>
 
 
@@ -224,6 +251,38 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+   @*<script>
+       $(document).ready(function () {
+           var purchaseCode = 2019;
+
+           $("#btnincrement").change(function () {
+                $("#purchaseCode").val(purchaseCode--);
+           });
+          
+       });
+       
+    </script>*@
+
+    <script>
+        $(document).ready(function () {
+            $("#SupplierId").change(function () {
+                var supplierId = $("#SupplierId").val();
+                var jsonRequestData = { supplierId: supplierId };
+                $.ajax({
+                    url: "/Purchase/GetSupplierNameBySupplierId",
+                    type: "POST",
+                    data: jsonRequestData,
+                    success: function (supplier) {
+                        $("#SupplierName").val(supplier);
+                    },
+                    error: function () {
+                        alert("ajax not working");
+                    },
+                });
+            });
+        });
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -240,13 +299,15 @@
                         $("#ProductId").append("--select--");
 
                         $.each(products, function (key, value) {
-
+                          
                             $("#ProductId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
                             //$("#Code").val(value.Code);
                         });
                     },
                     error: function () {
-                        alert("ajax Not working");
+                        $("#ProductId").empty();
+                        $("#ProductId").append("--select--");
+                        //alert("ajax Not working");
                     }
                 });
             });
@@ -254,7 +315,7 @@
     </script>
 
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function () {
             $("#ProductId").change(function () {
                 var productId = $("#ProductId").val();
@@ -265,24 +326,34 @@
                     data: jsonrequestData,
                     success: function (productCode) {
                         $("#Code").empty();
-                        $("#Code").val(productCode[0].Code);
-                        //$.each(productCode, function (key, value) {
-                        //    $("#Code").val(value.Code);
-                        //});
+                        //$("#Code").val(productCode[0].Code);
+                        $.each(productCode, function (key, value) {
+                            $("#Code").val(value.Code);
+                            $("#productName").val(value.Name);
+                        });
                     },
                     error: function () {
                         alert("not done");
                     }
                 });
-            });
-        });
-    </script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#Code").change(function () {
-                var code = $("#Code").val();
-                var jsonrequestData = { code: code };
+                //availableQuantity calculation
+
+                $.ajax({
+                    url: "/Purchase/GetPurchaseAvailableQuantity",
+                    type: "POST",
+                    data: jsonrequestData,
+                    success: function (availableQuantity) {
+                        //alert("done");
+                        $("#availableQuantity").val(availableQuantity);
+                    },
+                    error: function () {
+                        alert("not done");
+                    }
+                });
+
+                //PreviousUnitPrice and PreviousMrp Calculation
+
                 $.ajax({
                     url: "/Purchase/GetPreviousProductPurchaseInfoByCode",
                     type: "POST",
@@ -298,11 +369,16 @@
                         alert("not done");
                     }
                 });
+
+
+
             });
         });
     </script>
 
-    <script type="text/javascript">
+
+
+    <script>
 
         //calculate total price
 
@@ -365,6 +441,7 @@
 
                 var productId = $("#ProductId").val();
                 var code = $("#Code").val();
+                var productName = $("#productName").val();
                 var manuFractureDateTime = $('#ManuFractureDateTime').val();
                 var expireDateTime = $('#ExpireDateTime').val();
                 var Remarks = $('#Remarks').val();
@@ -375,14 +452,15 @@
                 var totalPrice = $('#TotalPrice').val();
                 var mrp = $('#MRP').val();
 
-                return { ProductId: productId, Code: code, ManuFractureDateTime: manuFractureDateTime, ExpireDateTime: expireDateTime, Remarks: Remarks, Quantity: quantity, UnitPrice: unitPrice, TotalPrice: totalPrice, MRP: mrp }
+                return { Code: code, ProductName: productName, ManuFractureDateTime: manuFractureDateTime, ExpireDateTime: expireDateTime, Remarks: Remarks, Quantity: quantity, UnitPrice: unitPrice, TotalPrice: totalPrice, MRP: mrp, ProductId: productId }
             }
 
             var sl = index;
             function GerResultRow(result) {
 
-                var productIdHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].ProductId' value='" + result.ProductId + "'></div>";
+
                 var codeHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].Code' value='" + result.Code + "'></div>";
+                var productNameHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].ProductName' value='" + result.ProductName + "'></div>";
                 var manuFractureDateTimeHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].ManuFractureDateTime' value='" + result.ManuFractureDateTime + "'></div>";
                 var expireDateTimeHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].ExpireDateTime' value='" + result.ExpireDateTime + "'></div>";
                 var remarksHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].Remarks' value='" + result.Remarks + "'></div>";
@@ -390,11 +468,12 @@
                 var unitPriceHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].UnitPrice' value='" + result.UnitPrice + "'></div>";
                 var totalPriceHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].TotalPrice' value='" + result.TotalPrice + "'></div>";
                 var mRPHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].MRP' value='" + result.MRP + "'></div>";
+                var productIdHidden = "<input type='hidden' name='PurchaseDetailses[" + index + "].ProductId' value='" + result.ProductId + "'></div>";
+
 
                 var startTr = "<tr>";
                 var slCell = "<td class='text-success'>" + (++sl) + "</td>";
-                var productIdCell = "<td class='text-success'>" + productIdHidden + result.ProductId + "</td>";
-                var codeCell = "<td class='text-success'>" + codeHidden + result.Code + "</td>";
+                var codeCell = "<td class='text-success'>" + productNameHidden + result.ProductName + "(" + codeHidden + result.Code + ")</td>";
                 var manuFractureDateTimeCell = "<td class='text-success'>" + manuFractureDateTimeHidden + result.ManuFractureDateTime + "</td>";
                 var expireDateTimeCell = "<td class='text-success'>" + expireDateTimeHidden + result.ExpireDateTime + "</td>";
                 var remarkCell = "<td class='text-success'>" + remarksHidden + result.Remarks + "</td>";
@@ -402,9 +481,10 @@
                 var unitPriceCell = "<td class='text-success'>" + unitPriceHidden + result.UnitPrice + "</td>";
                 var totalPriceCell = "<td class='text-success'>" + totalPriceHidden + result.TotalPrice + "</td>";
                 var mrpCell = "<td class='text-success'>" + mRPHidden + result.MRP + "</td>";
+                var productIdCell = "<td style='visibility:hidden' class='text-success'>" + productIdHidden + result.ProductId + "</td>";
                 var endTr = "</tr>";
 
-                return (startTr + slCell + productIdCell + codeCell + manuFractureDateTimeCell + expireDateTimeCell + remarkCell + quantityCell + unitPriceCell + totalPriceCell + mrpCell + endTr);
+                return (startTr + slCell + codeCell + manuFractureDateTimeCell + expireDateTimeCell + remarkCell + quantityCell + unitPriceCell + totalPriceCell + mrpCell + productIdCell + endTr);
 
             }
 
@@ -416,67 +496,67 @@
 
 
 
-                    //$(document).ready(function () {
+                                        //$(document).ready(function () {
 
-                    //    var sln = 1;
-                    //    parseInt(sln);
+                                        //    var sln = 1;
+                                        //    parseInt(sln);
 
-                    //    $("#addPurchase").click(function () {
-                    //        $("#purchaseTable").append(
-                    //                                    '<tr><td>' + (sln++) +
-                    //                                    '</td><td name="ProductId">' + $("#ProductId").val() +
-                    //                                    '</td><td name="ManufractureDate">' + $("#ManufractureDate").val() +
-                    //                                    '</td><td name="ExoireDate">' + $("#ExoireDate").val() +
-                    //                                    '</td><td name="Quantity">' + $("#Quantity").val() +
-                    //                                    '</td><td name="UnitePrice">' + $("#UnitePrice").val() +
-                    //                                    '</td><td name="TotalPrice">' + $("#TotalPrice").val() +
-                    //                                    '</td><td name="Mrp">' + $("#Mrp").val() + '</td></tr>'
-                    //                                  );
+                                        //    $("#addPurchase").click(function () {
+                                        //        $("#purchaseTable").append(
+                                        //                                    '<tr><td>' + (sln++) +
+                                        //                                    '</td><td name="ProductId">' + $("#ProductId").val() +
+                                        //                                    '</td><td name="ManufractureDate">' + $("#ManufractureDate").val() +
+                                        //                                    '</td><td name="ExoireDate">' + $("#ExoireDate").val() +
+                                        //                                    '</td><td name="Quantity">' + $("#Quantity").val() +
+                                        //                                    '</td><td name="UnitePrice">' + $("#UnitePrice").val() +
+                                        //                                    '</td><td name="TotalPrice">' + $("#TotalPrice").val() +
+                                        //                                    '</td><td name="Mrp">' + $("#Mrp").val() + '</td></tr>'
+                                        //                                  );
 
-                    //    })
-                    //})
-
-
-
-
-
-                                //function AddPurchaseTableRow() {
-
-                                //    var purchaseTable = document.getElementById("purchaseTable"),
-
-                                //        newRow = purchaseTable.insertRow(purchaseTable.length),
-
-                                //        cell1 = newRow.insertCell(0),
-                                //        cell2 = newRow.insertCell(1),
-                                //        cell3 = newRow.insertCell(2)
-                                //        cell4 = newRow.insertCell(3),
-                                //        cell5 = newRow.insertCell(4),
-                                //        cell6 = newRow.insertCell(5),
-                                //        cell7 = newRow.insertCell(6),
-
-
-
-                                //        product = document.getElementById("ProductId").value,
-                                //        ManufractureDate = document.getElementById("ManufractureDate").value,
-                                //        ExoireDate = document.getElementById("ExoireDate").value,
-                                //        Quantity = document.getElementById("Quantity").value,
-                                //        UnitePrice = document.getElementById("UnitePrice").value,
-                                //        TotalPrice = document.getElementById("TotalPrice").value,
-                                //        Mrp = document.getElementById("Mrp").value,
+                                        //    })
+                                        //})
 
 
 
 
-                                //    cell1.innerHTML = product;
-                                //    cell2.innerHTML = ManufractureDate;
-                                //    cell3.innerHTML = ExoireDate;
-                                //    cell4.innerHTML = Quantity;
-                                //    cell5.innerHTML = UnitePrice;
-                                //    cell6.innerHTML = TotalPrice;
-                                //    cell7.innerHTML = Mrp;
+
+                                                    //function AddPurchaseTableRow() {
+
+                                                    //    var purchaseTable = document.getElementById("purchaseTable"),
+
+                                                    //        newRow = purchaseTable.insertRow(purchaseTable.length),
+
+                                                    //        cell1 = newRow.insertCell(0),
+                                                    //        cell2 = newRow.insertCell(1),
+                                                    //        cell3 = newRow.insertCell(2)
+                                                    //        cell4 = newRow.insertCell(3),
+                                                    //        cell5 = newRow.insertCell(4),
+                                                    //        cell6 = newRow.insertCell(5),
+                                                    //        cell7 = newRow.insertCell(6),
 
 
-                                //}
+
+                                                    //        product = document.getElementById("ProductId").value,
+                                                    //        ManufractureDate = document.getElementById("ManufractureDate").value,
+                                                    //        ExoireDate = document.getElementById("ExoireDate").value,
+                                                    //        Quantity = document.getElementById("Quantity").value,
+                                                    //        UnitePrice = document.getElementById("UnitePrice").value,
+                                                    //        TotalPrice = document.getElementById("TotalPrice").value,
+                                                    //        Mrp = document.getElementById("Mrp").value,
+
+
+
+
+                                                    //    cell1.innerHTML = product;
+                                                    //    cell2.innerHTML = ManufractureDate;
+                                                    //    cell3.innerHTML = ExoireDate;
+                                                    //    cell4.innerHTML = Quantity;
+                                                    //    cell5.innerHTML = UnitePrice;
+                                                    //    cell6.innerHTML = TotalPrice;
+                                                    //    cell7.innerHTML = Mrp;
+
+
+                                                    //}
     </script>
 
 

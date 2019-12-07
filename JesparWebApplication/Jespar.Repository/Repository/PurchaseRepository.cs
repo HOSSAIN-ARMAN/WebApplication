@@ -20,6 +20,10 @@ namespace Jespar.Repository.Repository
         {
             return _dbContext.PurchaseDetailses.ToList();
         }
+        public List<Purchase> GetPurchaseReportAll()
+        {
+            return _dbContext.Purchases.ToList();
+        }
 
     }
 }

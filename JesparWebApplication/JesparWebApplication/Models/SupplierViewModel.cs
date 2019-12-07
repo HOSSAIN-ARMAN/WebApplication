@@ -32,9 +32,10 @@ namespace JesparWebApplication.Models
         [Display(Name = "Contact: ")]
         public string Contact { set; get; }
         [Required(ErrorMessage = "Input Can Not Be Empty")]
-        [MinLength(1, ErrorMessage = "Loyalti Point Can not Be Nagative")]
-        [Display(Name = "Loyalty Point: ")]
-        public string LoyaltyPoint { set; get; }
+        [MinLength(11, ErrorMessage = "Contact must be in 11 numbers")]
+        [MaxLength(11, ErrorMessage = "Contact must be in 11 numbers")]
+        [Display(Name = "Person Contact: ")]
+        public string PersonContact { set; get; }
         public List<Supplier> Suppliers { set; get; }
     }
 }

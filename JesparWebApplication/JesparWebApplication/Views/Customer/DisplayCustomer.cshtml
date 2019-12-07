@@ -1,0 +1,12 @@
+﻿@model JesparWebApplication.Models.CustomerViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @{
+        Html.RenderPartial("~/Views/Shared/Customer/_CustomerDetails.cshtml", Model);
+    }
+
+</div>
