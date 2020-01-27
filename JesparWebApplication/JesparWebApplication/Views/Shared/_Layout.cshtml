@@ -181,11 +181,11 @@
                 <li class="nav-category-divider">MAIN</li>
 
                 @*<li>
-                    <a href="index.html">
-                        <span class="link-title">Dashboard</span>
-                        <i class="mdi mdi-gauge link-icon"></i>
-                    </a>
-                </li>*@
+            <a href="index.html">
+                <span class="link-title">Dashboard</span>
+                <i class="mdi mdi-gauge link-icon"></i>
+            </a>
+        </li>*@
 
                 <li>
                     <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
@@ -225,40 +225,28 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
+                    <a href="@Url.Action("DisplayStock", "Stock")">
                         <span class="link-title">Stock Module</span>
-                        <i class="mdi mdi-bullseye link-icon"></i>
+                        <i class="mdi mdi-chart-donut link-icon"></i>
                     </a>
-                    <ul class="collapse navigation-submenu" id="ui-elements">
-                        <li>
-                            <a href="#">Buttons</a>
-                        </li>
-                        <li>
-                            <a href="#">Tables</a>
-                        </li>
-                        <li>
-                            <a href="#">Typography</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
-                    <a href="#" data-toggle="collapse" aria-expanded="false">
+                    <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
                         <span class="link-title">Report Module</span>
                         <i class="mdi mdi-bullseye link-icon"></i>
                     </a>
                     <ul class="collapse navigation-submenu" id="ui-elements">
                         <li>
-                            <a href="#">Buttons</a>
+                            <a href="@Url.Action("GetSalesReport", "SalesReport")"> Expense Report on Sales</a>
                         </li>
                         <li>
-                            <a href="#">Tables</a>
+                            <a href="@Url.Action("GetPurchaseReport", "PurchaseReport")">Expense Report on Purchase </a>
                         </li>
-                        <li>
-                            <a href="#">Typography</a>
-                        </li>
+                        
                     </ul>
                 </li>
-               
+                
+
                 <li class="nav-category-divider">DOCS</li>
                 <li>
                     <a href="#">

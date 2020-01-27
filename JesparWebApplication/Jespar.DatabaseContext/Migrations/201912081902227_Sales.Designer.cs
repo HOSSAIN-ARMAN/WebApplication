@@ -13,7 +13,7 @@ namespace Jespar.DatabaseContext.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201912061848131_Sales"; }
+            get { return "201912081902227_Sales"; }
         }
         
         string IMigrationMetadata.Source

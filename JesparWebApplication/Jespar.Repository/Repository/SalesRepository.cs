@@ -16,5 +16,13 @@ namespace Jespar.Repository.Repository
             _dbContext.Sales.Add(sales);
             return _dbContext.SaveChanges() > 0;
         }
+        public List<SalesDetails> GetAllSalesDetails()
+        {
+            return _dbContext.SalesDetails.ToList();
+        }
+        public List<Sales> GetAll()
+        {
+            return _dbContext.Sales.ToList();
+        }
     }
 }

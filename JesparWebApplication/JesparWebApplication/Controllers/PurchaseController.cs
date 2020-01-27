@@ -148,15 +148,16 @@ namespace JesparWebApplication.Controllers
         }
 
         [HttpGet]
-        public ActionResult PurchaseDetails()
+        public ActionResult PurchaseDetails(int id)
         {
             PurchaseViewModel purchaseViewModel = new PurchaseViewModel();
-            purchaseViewModel.PurchaseDetailses = _purchaseManager.GetAll();
+            purchaseViewModel.PurchaseDetailses = _purchaseManager.GetAll().Where(c => c.PurchaseId == id).ToList();
             return View(purchaseViewModel);
         }
         [HttpPost]
         public ActionResult PurchaseDetails(PurchaseViewModel purchaseViewModel)
         {
+            
             purchaseViewModel.PurchaseDetailses = _purchaseManager.GetAll();
             return View(purchaseViewModel);
         }

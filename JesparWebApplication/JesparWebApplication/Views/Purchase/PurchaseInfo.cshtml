@@ -29,26 +29,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @{ int i = 1;}
-                        @foreach (var purchase in Model.Purchases)
-                        {
-                        <tr>
-                            <td>@(i++)</td>
-                            <td>@purchase.SupplierName</td>
-                            <td>@purchase.InvoiceNo</td>
-                            <td>@purchase.Date</td>
+                            @{ int i = 1;}
+                            @foreach (var purchase in Model.Purchases)
+                            {
+                            <tr>
+                                <td>@(i++)</td>
+                                <td>@purchase.SupplierName</td>
+                                <td>@purchase.InvoiceNo</td>
+                                <td>@purchase.Date</td>
 
 
 
-                            <td>
-                                @*@Html.ActionLink("Detalis", "PurchaseDetails", "Purchase", new { Id = purchase.Id }, null)*@
-
-                                <a href="~/Views/Shared/Purchase/_purchaseReport.cshtml" id="partial"> Details</a>
-
-
-                            </td>
-                            <td style='visibility:hidden' id="purchaseId">@purchase.Id</td>
-                        </tr>
+                                <td>
+                                    @Html.ActionLink("Detalis", "PurchaseDetails", "Purchase", new { Id = purchase.Id }, null)
+                               
+                                </td>
+                                @*<td style='visibility:hidden' id="purchaseId">@purchase.Id</td>*@
+                            </tr>
                         }
 
 

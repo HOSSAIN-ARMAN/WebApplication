@@ -1,0 +1,29 @@
+﻿@model JesparWebApplication.Models.CategoryViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <hr />
+
+
+    @section Search{
+        <form action="#" class="t-header-search-box" method="post">
+                <div class="input-group">
+                    <input type="text" name="Code" value="@Model.Code" class="form-control" id="inlineFormInputGroup"  autocomplete="off">
+                    <input type="text" name="Name" value="@Model.Name" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+                    <button class="btn btn-outline-info" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+                </div>
+        </form>
+
+    }
+
+    @{
+        Html.RenderPartial("~/Views/Shared/Category/_CategoryDetails.cshtml", Model);
+    }
+
+
+</div>
+

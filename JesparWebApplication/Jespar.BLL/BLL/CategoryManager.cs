@@ -20,5 +20,17 @@ namespace Jespar.BLL.BLL
         {
             return _categoryRepository.GetAll();
         }
+        public Category GetById(int id)
+        {
+            return _categoryRepository.GetById(id);
+        }
+        public bool Update(Category category)
+        {
+            return _categoryRepository.Update(category);
+        }
+        public bool Delete(int id)
+        {
+            return _categoryRepository.Delete(id);
+        }
     }
 }

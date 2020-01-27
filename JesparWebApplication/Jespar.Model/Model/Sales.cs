@@ -14,12 +14,12 @@ namespace Jespar.Model.Model
         }
         public int Id { set; get; }
         public int Code { set; get; }
-        public int CustomerId { set; get; }
-        public string CustomerName { set; get; }
+        public int CustomerId { set; get; }        
         public Customer Customer { set; get; }
-        public string Date { set; get; }
+        public DateTime Date { set; get; }
         public int LoyaltyPoint { set; get; }
-       
+
+        public string CustomerName { set; get; }
         public List<SalesDetails> SalesDetails { set; get; }
     }
 }

@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container">
+    <hr />
+    Purchase Report
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <td>Start Date</td>
+                <td><input type="date" id="StartDate" class="form-control" /> </td>
+            </div>
+            <br />
+            <div class="col-md-4">
+                <td>End Date</td>
+                <td><input type="date" id="EndDate" class="form-control" /> </td>
+            </div>
+            <br />
+            <br />
+            <div class="col-md-4">
+                <td>
+                    <button class="btn btn-outline-info" type="button" id="get">
+                        Search
+                    </button>
+                </td>
+            </div>
+            <div class="col-md-12" id="stockPartial"></div>
+        </div>
+    </div>
+    
+</div>
+
+
+<div class="row">
+    
+</div>
+@section MyScript{
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+
+
+
+        /////////////////////////////////
+
+        $('#get').click(function () {
+
+            var startdate = $("#StartDate").val();
+            var enddate = $("#EndDate").val();
+            // startdate.setDate($("#StartDate").val());
+            //enddate.setDate($("#EndDate").val());
+            var parameters = { startDate: startdate, endDate: enddate };
+
+            $.ajax({
+                url: "/PurchaseReport/GetPurchaseReportByDate",
+                type: "GET",//GET/POST
+                data: parameters,// JSON.stringify({ ProductId: proId, startDate: startdate, endDate: enddate }),
+                success: function (data) {
+
+                    var rdata = data;
+
+                    $("#stockPartial").html(data);
+                },
+                error: function () { alert("Error"); }
+
+            });
+
+        });
+
+
+
+
+
+        ///////////////////////////
+
+
+
+
+
+
+
+    });
+
+
+    </script>
+
+
+
+}

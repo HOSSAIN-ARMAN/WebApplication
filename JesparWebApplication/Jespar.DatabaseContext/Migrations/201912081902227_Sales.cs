@@ -14,9 +14,9 @@ namespace Jespar.DatabaseContext.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Code = c.Int(nullable: false),
                         CustomerId = c.Int(nullable: false),
-                        CustomerName = c.String(),
-                        Date = c.String(),
+                        Date = c.DateTime(nullable: false),
                         LoyaltyPoint = c.Int(nullable: false),
+                        CustomerName = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: true)
@@ -32,10 +32,6 @@ namespace Jespar.DatabaseContext.Migrations
                         Quantity = c.Int(nullable: false),
                         MRP = c.Int(nullable: false),
                         TotalMrp = c.Int(nullable: false),
-                        GrandTotal = c.Int(nullable: false),
-                        Discount = c.Int(nullable: false),
-                        DiscountAmmount = c.Int(nullable: false),
-                        PayableAmmount = c.Int(nullable: false),
                         SalesId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

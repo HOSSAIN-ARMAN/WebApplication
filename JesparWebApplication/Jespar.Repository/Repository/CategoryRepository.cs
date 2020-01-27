@@ -20,5 +20,25 @@ namespace Jespar.Repository.Repository
         {
             return _dbContext.Categories.ToList();
         }
+        public Category GetById(int id)
+        {
+            return _dbContext.Categories.FirstOrDefault(c => c.Id == id);
+        }
+        public bool Update(Category category)
+        {
+            Category aCategory = _dbContext.Categories.FirstOrDefault(c => c.Id == category.Id);
+            if(aCategory != null)
+            {
+                aCategory.Code = category.Code;
+                aCategory.Name = category.Name;
+            }
+            return _dbContext.SaveChanges() > 0;
+        }
+        public bool Delete(int id)
+        {
+            Category category = _dbContext.Categories.FirstOrDefault(c => c.Id == id);
+            _dbContext.Categories.Remove(category);
+            return _dbContext.SaveChanges() > 0;
+        }
     }
 }

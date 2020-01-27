@@ -15,16 +15,11 @@ namespace Jespar.Model.Model
         public int Quantity { set; get; }
         public int MRP { set; get; }
         public int TotalMrp { set; get; }
-
-
-
-        public int GrandTotal { set; get; }
-        public int Discount { set; get; }
-        public int DiscountAmmount { set; get; }
-        public int PayableAmmount { set; get; }
-
         public int SalesId { set; get; }
         public Sales Sales { set; get; }
+
+        //
+       
 
     }
 }

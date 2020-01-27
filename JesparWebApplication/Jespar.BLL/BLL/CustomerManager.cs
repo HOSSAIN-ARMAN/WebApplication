@@ -36,5 +36,9 @@ namespace Jespar.BLL.BLL
         {
             return _customerRepository.GetById(Id);
         }
+        public bool UpdateLoyaltyPoint(Customer customer)
+        {
+            return _customerRepository.UpdateLoyaltyPoint(customer);
+        }
     }
 }

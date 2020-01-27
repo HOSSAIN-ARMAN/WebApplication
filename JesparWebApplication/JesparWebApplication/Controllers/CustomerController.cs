@@ -34,14 +34,22 @@ namespace JesparWebApplication.Controllers
         {
             string message = "";
             Customer customer = Mapper.Map<Customer>(customerViewModel);
-            if (_customerManager.Add(customer))
+            if (ModelState.IsValid)
             {
-                message = "saved";
+                if (_customerManager.Add(customer))
+                {
+                    message = "saved";
+                }
+                else
+                {
+                    message = "not saved";
+                }
             }
             else
             {
-                message = "not saved";
+                message = "Faield To Submit";
             }
+            
 
             ViewBag.message = message;
 
@@ -49,7 +57,7 @@ namespace JesparWebApplication.Controllers
 
             return View(customerViewModel);
         }
-
+        [HttpGet]
         public ActionResult DisplayCustomer()
         {
             CustomerViewModel customerViewModel = new CustomerViewModel();
@@ -57,6 +65,18 @@ namespace JesparWebApplication.Controllers
 
             return View(customerViewModel);
         }
+        [HttpPost]
+        public ActionResult DisplayCustomer(CustomerViewModel customerViewModel)
+        {
+            var Customers = _customerManager.GetAll();
+            if (customerViewModel.CustomerName != null)
+            {
+                Customers = Customers.Where(c => c.CustomerName.ToLower().Contains(customerViewModel.CustomerName.ToLower())).ToList();
+            }
+            customerViewModel.Customers = Customers;
+            return View(customerViewModel);
+        }
+        
         //public ViewResult GetAll()
         //{
         //    return View(_projectDbContext.Customers.ToList());
@@ -95,18 +115,6 @@ namespace JesparWebApplication.Controllers
             return View(customerViewModel);
         }
 
-        //[HttpGet]
-        //public ActionResult Delete(int id)
-        //{
-        //    Customer customer = _customerManager.GetById(id);
-        //    CustomerViewModel customerViewModel = Mapper.Map<CustomerViewModel>(customer);
-
-
-        //    customerViewModel.Customers = _customerManager.GetAll();
-
-
-        //    return View(customerViewModel);
-        //}
 
         [HttpGet]
         

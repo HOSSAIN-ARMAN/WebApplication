@@ -33,7 +33,11 @@ namespace JesparWebApplication.Models
 
 
         public string Code { set; get; }
+
+        [DataType(DataType.Date)]
         public DateTime ManuFractureDateTime { set; get; }
+
+        [DataType(DataType.Date)]
         public DateTime ExpireDateTime { set; get; }
         public string Remarks { set; get; }
         public int Quantity { set; get; }

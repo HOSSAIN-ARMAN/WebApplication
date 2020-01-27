@@ -1,1 +1,46 @@
-﻿
+﻿@model JesparWebApplication.Models.CategoryViewModel
+
+<div class="card">
+    <div class="grid-header">
+        <div class="row">
+            <label class="col-md-10"></label>
+            @*<button class="col-md-4 btn btn-outline-primary"><a href="@Url.Action("Save", "Supplier")">Add Supplier</a></button>*@
+            <a href="@Url.Action("CategorySave", "Category")"><button class="btn btn-outline-info" type="submit">Add CATEGORY<i class="mdi mdi-arrow-up-bold-circle"></i></button></a>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>SL</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1;}
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@category.Code</td>
+                        <td>@category.Name</td>
+                        
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "Category", new { Id = category.Id }, null)
+                            @Html.ActionLink("Delete", "Delete", "Category", new { Id = category.Id }, null)
+                            @*<a class='btn btn-outline-info btn-sm' href="#"><span class="glyphicon glyphicon-edit"></span> </a>
+                                <a class="btn btn-outline-danger btn-sm" href="#"><span class="glyphicon glyphicon-trash"></span> Del</a>*@
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

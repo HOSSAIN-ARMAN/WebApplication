@@ -81,9 +81,9 @@
     <Compile Include="Migrations\201912061644071_updataPurchaseCode.Designer.cs">
       <DependentUpon>201912061644071_updataPurchaseCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912061848131_Sales.cs" />
-    <Compile Include="Migrations\201912061848131_Sales.Designer.cs">
-      <DependentUpon>201912061848131_Sales.cs</DependentUpon>
+    <Compile Include="Migrations\201912081902227_Sales.cs" />
+    <Compile Include="Migrations\201912081902227_Sales.Designer.cs">
+      <DependentUpon>201912081902227_Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,8 +123,8 @@
     <EmbeddedResource Include="Migrations\201912061644071_updataPurchaseCode.resx">
       <DependentUpon>201912061644071_updataPurchaseCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912061848131_Sales.resx">
-      <DependentUpon>201912061848131_Sales.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912081902227_Sales.resx">
+      <DependentUpon>201912081902227_Sales.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

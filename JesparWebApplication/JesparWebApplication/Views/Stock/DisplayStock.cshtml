@@ -1,0 +1,146 @@
+﻿@model JesparWebApplication.Models.StockViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+@section Mystyle{
+
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+   
+}
+
+@section Search{
+
+    <div class="input-group">
+
+        <span class="notification-indicator notification-indicator-info notification-indicator-ripple"></span>
+        <a href="@Url.Action("Dispaly", "Category")"><i class="grid-icon mdi mdi-table-of-contents mdi-2x"></i></a>
+
+    </div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            category :    @Html.DropDownList("Category", null, "--Select--", new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <br />
+                        <div class="col-md-6">
+                            product :
+                            <select id="ProductId" class="form-control">
+                                <option value="0">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            StartDate :<input type="date" class="form-control" />
+                        </div>
+                        <br />
+                        <br />
+                        <div class="col-md-6">
+                            EndDate :<input type="date" class="form-control" />
+                            <br />
+                            <br />
+                            <input type="button" value="Search" class="form-control btn btn-outline-light" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+   
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>SL</th>
+                <th>Code</th>
+                <th>Category</th>
+                <th>ReorderLevel</th>
+                <th>ExpDate</th>
+                <th>OpeningBalance</th>
+                <th>In</th>
+                <th>Out</th>
+                <th>ClosingBalance</th>
+
+            </tr>
+        </thead>
+
+
+
+        @*@{
+                var stockReport = ViewBag.StockReport;
+            }
+
+            @foreach(var stockData in stockReport)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }*@
+    </table>
+</div>
+
+@section MyScript{
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Category").change(function () {
+                var categoryId = $("#Category").val();
+                var jsonRequestData = { categoryId: categoryId };
+                $.ajax({
+                    url: "/Purchase/GetProductByCategoryId",
+                    type: "POST",
+                    data: jsonRequestData,
+                    success: function (products) {
+
+                        $("#ProductId").empty();
+                        $("#ProductId").append('<Option value="' + -1 + '">' + "--select--" + '</Option>');
+
+                        $.each(products, function (key, value) {
+
+                            $("#ProductId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            //$("#Code").val(value.Code);
+                        });
+                    },
+                    error: function () {
+                        $("#ProductId").empty();
+                        $("#ProductId").append("--select--");
+                        //alert("ajax Not working");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+}
+

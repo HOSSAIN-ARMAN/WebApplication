@@ -16,5 +16,13 @@ namespace Jespar.BLL.BLL
         {
             return _salesRepository.AddSales(sales);
         }
+        public List<SalesDetails> GetAllSalesDetails()
+        {
+            return _salesRepository.GetAllSalesDetails();
+        }
+        public List<Sales> GetAll()
+        {
+            return _salesRepository.GetAll();
+        }
     }
 }

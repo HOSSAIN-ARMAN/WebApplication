@@ -17,161 +17,183 @@
 
 <div class="container">
     <hr />
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="grid-header">
+    <form method="post">
+        <div class="row">
 
-                            <label class="col-md-5 text-info">---**Customer**---</label>
-                            <div class="col-md-7"></div>
-                            <hr />
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Customer</label>
-                                <div class="col-sm-8">
-                                    @Html.DropDownList("Customer", null, "--Select--", new { @class = "form-control" })
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="grid-header">
+
+                                <label class="col-md-5 text-info">---**Customer**---</label>
+                                <div class="col-md-7"></div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Customer</label>
+                                    <div class="col-sm-8">
+                                        <input name="Code" id="Code" type="hidden" value="@ViewBag.SalesCode" />
+
+                                        @*@Html.DropDownList("Customer", null, "--Select--", new { Name = "CategoryId", @class = "form-control" })*@
+                                        @Html.DropDownListFor(c => c.CustomerId, Model.CustomerSelectListItems, "--Select--", new { @class = "form-control" })
+                                        <input name="CustomerName" id="CustomerName" type="hidden" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Date</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(c => c.Date, new { @class = "form-control", @type = "date" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Loyality Point</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(c => c.LoyaltyPoint, new { @class = "form-control" })
+                                        @*<input type="text" id="loyaltyPoint" class="form-control"/>*@
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+                                <label class="col-md-4 text-info">---**Product**---</label>
+                                <hr />
+
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Category</label>
+                                    <div class="col-sm-8">
+                                        @Html.DropDownList("Category", null, "--Select--", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Product</label>
+                                    <div class="col-sm-8">
+                                        <select id="ProductId" class="form-control">
+                                            <option value=-1>--select--</option>
+
+                                        </select>
+                                    </div>
+
+                                    <input name="ProductName" id="ProductName" type="hidden" />
 
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Date</label>
-                                <div class="col-sm-8">
-                                    <input type="date" class="form-control" />
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Available Quantity</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="availableQty" class="form-control" value="0" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Loyality Point</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.LoyaltyPoint, new { @class = "form-control" })
-                                    @*<input type="text" id="loyaltyPoint" class="form-control"/>*@
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Quantity</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(c => c.Quantity, new { @class = "form-control" })
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-
-                            <label class="col-md-4 text-info">---**Product**---</label>
-                            <hr />
-
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Category</label>
-                                <div class="col-sm-8">
-                                    @Html.DropDownList("Category", null, "--Select--", new { @class = "form-control" })
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">MRP</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(c => c.MRP, new { @class = "form-control" })
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Product</label>
-                                <div class="col-sm-8">
-                                    <select id="ProductId" class="form-control">
-                                        <option value=-1>--select--</option>
-
-                                    </select>
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Total MRP</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(c => c.TotalMrp, new { @class = "form-control" })
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Available Quantity</label>
-                                <div class="col-sm-8">
-                                    <input type="text" id="availableQty" class="form-control" value="0" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Quantity</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.Quantity, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">MRP</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.MRP, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Total MRP</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.TotalMrp, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label"></label>
-                                <div class="col-sm-8">
-                                    <input type="button" id="addSales" class="form-control btn-outline-light" value="Add" />
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label"></label>
+                                    <div class="col-sm-8">
+                                        <input type="button" id="addSales" class="form-control btn-outline-light" value="Add" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
+                <div class="col-md-6">
 
-                <div class="Row">
-                    <div class="col-md-12">
-                        <div class="grid-header">
-                            <label class="col-md-5 text-info">---**Sales Details**---</label>
-                            <div class="col-md-7"></div>
-                            <hr />
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Grand Total</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.GrandTotal, new { @class = "form-control" })
+                    <div class="Row">
+                        <div class="col-md-12">
+                            <div class="grid-header">
+                                <label class="col-md-5 text-info">---**Sales Details**---</label>
+                                <div class="col-md-7"></div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Grand Total</label>
+                                    <div class="col-sm-8">
+
+                                        <input id="GrandTotal" class="form-control" value="0" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Discount</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.Discount, new { @class = "form-control" })
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Discount</label>
+                                    <div class="col-sm-8">
+
+                                        <input id="Discount" class="form-control" value="@ViewBag.emptyData" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Discount Ammount</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.DiscountAmmount, new { @class = "form-control" })
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Discount Ammount</label>
+                                    <div class="col-sm-8">
+
+                                        <input id="DiscountAmmount" class="form-control" value="0" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="colFormLabel" class="col-sm-4 col-form-label">Payable Ammount</label>
-                                <div class="col-sm-8">
-                                    @Html.TextBoxFor(c => c.PayableAmmount, new { @class = "form-control" })
+                                <div class="form-group row">
+                                    <label for="colFormLabel" class="col-sm-4 col-form-label">Payable Ammount</label>
+                                    <div class="col-sm-8">
+
+                                        <input id="PayableAmmount" class="form-control" value="0" />
+                                    </div>
                                 </div>
+
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group row">
                                 <label for="colFormLabel" class="col-sm-8 col-form-label"></label>
                                 <div class="col-sm-4">
                                     <input type="submit" value="Submit" class="form-control btn-outline-dark" />
                                 </div>
                             </div>
+
+                            @if (ViewBag.Message != null)
+                            {
+                                <p class="text-info">@ViewBag.Message</p>
+                            }
+                            <hr />
+
+                            <div class="mce-grid-border">
+                                <table class="table table-bordered" id="salesTable">
+
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>MRP</th>
+                                            <th>Total MRP</th>
+                                            @*<th>Action</th>*@
+
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <hr />
-                        <div class="mce-grid-border">
-                            <table class="table table-bordered" id="salesTable">
-
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>SL</th>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>MRP</th>
-                                        <th>Total MRP</th>
-                                        <th>Action</th>
-
-                                    </tr>
-                                </thead>
-
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+    </form>
+
 </div>
 
 
@@ -182,26 +204,75 @@
 
     <script src="~/Scripts/bootstrap.min.js"></script>
 
+    <script>
+
+        //calculate total price
+
+        $(document).ready(function () {
+            var quantity = 0;
+            var mrp = 0;            
+
+            $("#Quantity").keyup(function () {
+                if (!IsNullOrEmpty($("#Quantity").val())) {
+                    quantity = parseInt($("#Quantity").val());
+                }
+                if (!IsNullOrEmpty($("#MRP").val())) {
+                    mrp = parseInt($("#MRP").val());
+                }
+                $("#TotalMrp").val(quantity * mrp);
+              
+            });
+            $("#MRP").keyup(function () {
+                if (!IsNullOrEmpty($("#Quantity").val())) {
+                    quantity = parseInt($("#Quantity").val());
+                }
+                if (!IsNullOrEmpty($("#MRP").val())) {
+                    mrp = parseInt($("#MRP").val());
+                }
+                $("#TotalMrp").val(quantity * mrp);
+               
+            });
+
+            function IsNullOrEmpty(data) {
+                if (data === undefined || data === "" || isNaN(data)) {
+                    return true;
+                }
+                return false;
+            }
+
+
+        });
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#Customer").change(function () {
-                var customerId = $("#Customer").val();
+            $("#CustomerId").change(function () {
+
+                var customerId = $("#CustomerId").val();
                 var jsonRequestData = { customerId: customerId };
                 $.ajax({
                     url: "/Sales/GetLoyaltyPointByCustomerId",
                     type: "POST",
                     data: jsonRequestData,
                     success: function (loyaltyPoint) {
-                        $("#LoyaltyPoint").val(loyaltyPoint);
+                        $.each(loyaltyPoint, function (key, value) {
+                            $("#LoyaltyPoint").empty();
+                            $("#LoyaltyPoint").val(value.LoyaltyPoint);
+                            $("#CustomerName").val(value.CustomerName);
+                            $("#Discount").val(value.LoyaltyPoint / 10);
+                        });
+
+
                     },
                     error: function () {
                         alert("ajax Not working");
                     }
                 });
+
             });
         });
     </script>
+
 
 
     <script type="text/javascript">
@@ -217,11 +288,35 @@
 
                         $("#ProductId").empty();
                         $("#ProductId").append('<Option value="' + -1 + '">' + "--select--" + '</Option>');
-                        
+
                         $.each(products, function (key, value) {
 
                             $("#ProductId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
                             //$("#Code").val(value.Code);
+                        });
+                    },
+                    error: function () {
+                        alert("Select Category!!!!!!!!!");
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ProductId").change(function () {
+                var productId = $("#ProductId").val();
+                var jsonRequestData = { ProductId: productId };
+                $.ajax({
+                    url: "/Sales/GetProductAvailableQuantityAndMrp",
+                    type: "POST",
+                    data: jsonRequestData,
+                    success: function (availavleQty) {
+                        $.each(availavleQty, function (key, value) {
+                            $("#availableQty").val(value.Quantity);
+                            $("#MRP").val(value.MRP);
                         });
                     },
                     error: function () {
@@ -238,14 +333,11 @@
                 var productId = $("#ProductId").val();
                 var jsonRequestData = { ProductId: productId };
                 $.ajax({
-                    url: "/Sales/GetProductAvailableQuantityAndMrp",
+                    url: "/Sales/GetProductName",
                     type: "POST",
                     data: jsonRequestData,
-                    success: function (availavleQty) {                                                
-                        $.each(availavleQty, function (key, value) {
-                            $("#availableQty").val(value.Quantity);
-                            $("#MRP").val(value.MRP);
-                        });
+                    success: function (productName) {
+                        $("#ProductName").val(productName);
                     },
                     error: function () {
                         alert("Select Category!!!!!!!!!");
@@ -254,8 +346,6 @@
             });
         });
     </script>
-
-    
 
 
     <script type="text/javascript">
@@ -277,23 +367,23 @@
 
 
                 $('#GrandTotal').val(GrandTotal());
-                $('#Discount').val(GetDiscount());
                 $('#DiscountAmmount').val(DiscountAmmount());
                 $('#PayableAmmount').val(parseInt(PayableAmmount()));
-                //$("#LoyaltyPoint").val(parseFloat(ResetLoyaltyPoint()));
+
 
             });
 
 
             function GetResultData() {
 
-                var product = $("#Product").val();
+                var productId = $("#ProductId").val();
+                var productName = $("#ProductName").val();
                 var quantity = $("#Quantity").val();
                 var mrp = $("#MRP").val();
                 var totalMrp = $('#TotalMrp').val();
 
 
-                return { Product: product, Quantity: quantity, Mrp: mrp, TotalMrp: totalMrp }
+                return { ProductName: productName, Quantity: quantity, Mrp: mrp, TotalMrp: totalMrp, ProductId: productId }
             }
 
 
@@ -301,25 +391,26 @@
             function GerResultRow(result) {
 
 
-                var productHidden = "<input type='hidden' name='Product[" + index + "].Product' value='" + result.Product + "'></div>";
-                var quantityHidden = "<input type='hidden' name='Quantity[" + index + "].Quantity' value='" + result.Quantity + "'></div>";
+                var producNametHidden = "<input type='hidden' name='SalesDetails[" + index + "].ProductName' value='" + result.ProductName + "'></div>";
+                var quantityHidden = "<input type='hidden' name='SalesDetails[" + index + "].Quantity' value='" + result.Quantity + "'></div>";
 
-                var mrpHidden = "<input type='hidden' name='MRP[" + index + "].Mrp' value='" + result.Mrp + "'></div>";
-                var totalMrpHidden = "<input type='hidden' id='totlmp'  name='totalMrp[" + index + "].TotalMrp' value='" + result.TotalMrp + "'></div>";
-
+                var mrpHidden = "<input type='hidden' name='SalesDetails[" + index + "].Mrp' value='" + result.Mrp + "'></div>";
+                var totalMrpHidden = "<input type='hidden'  name='SalesDetails[" + index + "].TotalMrp' value='" + result.TotalMrp + "'></div>";
+                var productIdHidden = "<input type='hidden' name='SalesDetails[" + index + "].ProductId' value='" + result.ProductId + "'></div>";
 
 
                 var startTr = "<tr>";
                 var slCell = "<td class='text-success'>" + (++sl) + "</td>";
-                var productCell = "<td class='text-success'>" + productHidden + result.Product + "</td>";
+                var productNameCell = "<td class='text-success'>" + producNametHidden + result.ProductName + "</td>";
                 var quantityCell = "<td class='text-success'>" + quantityHidden + result.Quantity + "</td>";
                 var mrpCell = "<td class='text-success'>" + mrpHidden + result.Mrp + "</td>";
                 var totalPriceCell = "<td  class='text-success'>" + totalMrpHidden + result.TotalMrp + "</td>";
+                var productIdCell = "<td style='visibility:hidden' class='text-success'>" + productIdHidden + result.ProductId + "</td>";
 
                 var endTr = "</tr>";
 
 
-                return (startTr + slCell + productCell + quantityCell + mrpCell + totalPriceCell + endTr);
+                return (startTr + slCell + productNameCell + quantityCell + mrpCell + totalPriceCell + productIdCell + endTr);
 
             }
 
@@ -331,12 +422,6 @@
                 var totalMrp = parseFloat($("#TotalMrp").val());
                 sum += totalMrp;
                 return sum;
-            }
-
-            function GetDiscount() {
-                var loyaltyPoint = $("#LoyaltyPoint").val();
-                var discount = loyaltyPoint / 10;
-                return discount;
             }
 
             function DiscountAmmount() {
@@ -353,14 +438,12 @@
                 return payableAmmount;
             }
 
-            //function ResetLoyaltyPoint() {
-            //    var loyaltyPoint = $("#LoyaltyPoint").val();
-            //    var discount = parseFloat($("#Discount").val());
-            //    var resetLoyaltyPoint = loyaltyPoint - discount;
-            //    return resetLoyaltyPoint;
+            //function IsNullOrEmpty(data) {
+            //    if (data === undefined || data === "" || isNaN(data)) {
+            //        return true;
+            //    }
+            //    return false;
             //}
-
-
 
         });
 

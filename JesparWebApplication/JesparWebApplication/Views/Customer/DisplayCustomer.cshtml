@@ -3,6 +3,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+@section Search{
+    <form action="#" class="t-header-search-box" method="post">
+        <div class="input-group">
+            
+            <input type="text" name="CustomerName" value="@Model.CustomerName" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+            <button class="btn btn-outline-info" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+        </div>
+    </form>
+
+}
 <div class="container">
 
     @{

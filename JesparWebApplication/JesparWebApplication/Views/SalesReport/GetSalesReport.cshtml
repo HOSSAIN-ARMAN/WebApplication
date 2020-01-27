@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section MyStyle{
+    
+
+}
+
+<div class="container">
+    <hr />
+    Sales Report
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <td>Start Date</td>
+                <input type="date" id="StartDate" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <td>End Date</td>
+                <input type="date" id="EndDate" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-outline-primary" type="button" id="get">
+                    Search
+                </button>
+            </div>
+        </div>
+        <div class="col-md-12" id="stockPartial"></div>
+    </div>
+    
+</div>
+
+
+
+@section MyScript{
+    <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+
+
+            /////////////////////////////////
+
+            $('#get').click(function () {
+
+                var startdate = $("#StartDate").val();
+                var enddate = $("#EndDate").val();
+                // startdate.setDate($("#StartDate").val());
+                //enddate.setDate($("#EndDate").val());
+                var parameters = { startDate: startdate, endDate: enddate };
+
+                $.ajax({
+                    url: "/SalesReport/GetSalesReportByDate",
+                    type: "GET",//GET/POST
+                    data: parameters,// JSON.stringify({ ProductId: proId, startDate: startdate, endDate: enddate }),
+                    success: function (data) {
+
+                        var rdata = data;
+
+                        $("#stockPartial").html(data);
+                    },
+                    error: function () { alert("Error"); }
+
+                });
+
+            });
+
+
+
+
+
+            ///////////////////////////
+
+
+
+
+
+
+
+        });
+
+
+    </script>
+
+
+
+}

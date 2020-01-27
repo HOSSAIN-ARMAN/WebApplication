@@ -296,7 +296,7 @@
                     success: function (products) {
 
                         $("#ProductId").empty();
-                        $("#ProductId").append("--select--");
+                       $("#ProductId").append('<Option value="' + -1 + '">' + "--select--" + '</Option>');
 
                         $.each(products, function (key, value) {
                           
@@ -386,29 +386,37 @@
             var quantity = 0;
             var unitPrice = 0;
             var totalPrice = 0;
+            
 
             $("#Quantity").keyup(function () {
                 if (!IsNullOrEmpty($("#Quantity").val())) {
-                    quantity = $("#Quantity").val();
+                    quantity = parseInt($("#Quantity").val());
                 }
                 if (!IsNullOrEmpty($("#UnitPrice").val())) {
-                    unitPrice = $("#UnitPrice").val();
+                    unitPrice = parseInt($("#UnitPrice").val());
                 }
 
-                totalPrice = quantity * unitPrice;
-                $("#TotalPrice").val(totalPrice);
+                if (!IsNullOrEmpty($("#UnitPrice").val()) && !IsNullOrEmpty($("#Quantity").val())) {
+                        $("#TotalPrice").val(unitPrice * quantity);
+                        $("#MRP").val(unitPrice + (unitPrice * (25 / 100)));
+                    }
+                
+               
             });
             $("#UnitPrice").keyup(function () {
                 if (!IsNullOrEmpty($("#Quantity").val())) {
-                    quantity = $("#Quantity").val();
+                    quantity = parseInt($("#Quantity").val());
                 }
                 if (!IsNullOrEmpty($("#UnitPrice").val())) {
-                    unitPrice = $("#UnitPrice").val();
+                    unitPrice = parseInt($("#UnitPrice").val());
                 }
-                totalPrice = quantity * unitPrice;
-                $("#TotalPrice").val(totalPrice);
+                
+                if (!IsNullOrEmpty($("#UnitPrice").val()) && !IsNullOrEmpty($("#Quantity").val())) {
+                        $("#TotalPrice").val(unitPrice * quantity);
+                        $("#MRP").val(unitPrice + (unitPrice * (25 / 100)));
+                    }
             });
-
+            
             function IsNullOrEmpty(data) {
                 if (data === undefined || data === "" || isNaN(data)) {
                     return true;

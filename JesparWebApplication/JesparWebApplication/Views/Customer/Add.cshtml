@@ -24,27 +24,27 @@
                     <tr>
                         <td>Customer Code</td>
                         <td><input type="text" name="CustomerCode" value="@Model.CustomerCode" /></td>
-                        <td></td>
+                        @Html.ValidationMessageFor(c => c.CustomerCode)
                     </tr>
                     <tr>
                         <td>Customer Name</td>
                         <td><input type="text" name="CustomerName" value="@Model.CustomerName" /></td>
-                        <td></td>
+                        @Html.ValidationMessageFor(c => c.CustomerName)
                     </tr>
                     <tr>
                         <td>Contact</td>
                         <td><input type="text" name="Contact" value="@Model.Contact" /></td>
-                        <td></td>
+                        @Html.ValidationMessageFor(c => c.Contact)
                     </tr>
                     <tr>
                         <td>Customer Email</td>
                         <td><input type="text" name="CustomerEmail" value="@Model.CustomerEmail" /></td>
-                        <td></td>
+                        @Html.ValidationMessageFor(c => c.CustomerEmail)
                     </tr>
                     <tr>
                         <td>Customer Address</td>
                         <td><input type="text" name="CustomerAddress" value="@Model.CustomerAddress" /></td>
-                        <td></td>
+                        @Html.ValidationMessageFor(c => c.CustomerAddress)
                     </tr>
                     <tr>
                         <td>Loyalty Point</td>

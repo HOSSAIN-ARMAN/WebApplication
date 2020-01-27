@@ -24,6 +24,16 @@ namespace Jespar.Repository.Repository
             _dbContext.Customers.Remove(aCustomer);
             return _dbContext.SaveChanges() > 0;
         }
+
+        public bool UpdateLoyaltyPoint(Customer customer)
+        {
+            Customer aCustomer = _dbContext.Customers.FirstOrDefault(c => c.Id == customer.Id);
+            if(aCustomer != null)
+            {
+                aCustomer.LoyaltyPoint = customer.LoyaltyPoint;
+            }
+            return _dbContext.SaveChanges() > 0;
+        }
         public bool Update(Customer customer)
         {
             Customer aCustomer = _dbContext.Customers.FirstOrDefault(c => c.Id == customer.Id);
